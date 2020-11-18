@@ -23,7 +23,7 @@ class ProfileController extends Controller
             'name'         => 'required',
             'email'        => 'required',
             'phone_number' => 'required',
-            'profile'      => 'required|image|mimes:jpg,png,jpeg,gif|max:3072',
+            'profile'      => 'image|mimes:jpg,png,jpeg,gif|max:3072',
         ]);
         // Update
         $adminUpdate               = User::find(Auth::id());

@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title> CodingSolve </title>
+    <title> রুসা ড্রিংকিং ওয়াটার </title>
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('public/Backend/assets/img/brand/favicon.png') }}" type="image/png">
     <!-- Fonts -->
@@ -31,8 +31,7 @@
          <div class="header-body text-center mb-7">
            <div class="row justify-content-center">
              <div class="col-xl-5 col-lg-6 col-md-8 px-5">
-               <h1 class="text-white">Welcome To Admin Login!</h1>
-               <p class="text-lead text-white">Use these awesome forms to login or create new account in your project for free.</p>
+               <h1 class="text-white">রুসা ড্রিংকিং ওয়াটার লগইন করুন</h1>
              </div>
            </div>
          </div>

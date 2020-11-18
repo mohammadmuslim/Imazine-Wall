@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\User;
+use App\Models\companycost;
+use App\Models\invoice;
 use Auth;
-use App\Models\post;
-use DB;
+use Carbon\Carbon as CarbonCarbon;
+use Illuminate\Support\Carbon;
+
 class DashboardController extends Controller
 {
     // Admin Dashboard ==================
@@ -28,7 +29,23 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('Admin.dashboard');
+        // Report =============
+
+        // Today invoice Report
+        $todaySale          = invoice::whereDate('date', today())->sum('total_amount');
+        $todayDue           = invoice::whereDate('date', today())->sum('due_amount');
+        $todayPaid          = invoice::whereDate('date', today())->sum('paid_amount');
+        $todayWaterQuantity = invoice::whereDate('date', today())->sum('water_quantity');
+
+        // Today Company Report
+        $todayCompanyCost = companycost::whereDate('date', today())->sum('costs');
+
+        // This Month Invoice Report
+        $thisMonthSale    = invoice::whereMonth('date', date('m'))->sum('total_amount');
+        $ThisMonthCosts   = companycost::whereMonth('date', date('m'))->sum('costs');
+        $thisMonthRavniue = $thisMonthSale - $ThisMonthCosts;
+
+        return view('Admin.dashboard', compact('todaySale', 'todayDue', 'todayPaid', 'todayWaterQuantity', 'todayCompanyCost', 'thisMonthSale', 'ThisMonthCosts', 'thisMonthRavniue'));
     }
     // Admin Logout
     public function logout()

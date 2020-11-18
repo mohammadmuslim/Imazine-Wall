@@ -50,15 +50,28 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
     Route::put('customers/update/{id}', 'CustomerController@update')->name('customer.update');
     Route::delete('customers/destory/{id}', 'CustomerController@destory')->name('customer.destory');
 
-    // Indivisul customer Invoice
+    // Report Controller ==========
     Route::get('customer/report/{id}', 'CustomerController@customerReport')->name('customer.report');
+    Route::get('company/report', 'CompanyCostController@companyReport')->name('company.report');
+    
+    // Search Report
+    Route::get('search/report', 'ReportController@searchReport')->name('search.report');
+    Route::post('search/report/resuit', 'ReportController@searchReportResuit')->name('search.report.resuit');
+    Route::post('company/search/report/', 'ReportController@companysearchReport')->name('company.search.report');
 
-    // Customer Route
+    // Invoice Route
     Route::get('invoices', 'InvoiceController@index')->name('invoice.index');
     Route::get('invoices/create', 'InvoiceController@create')->name('invoice.create');
     Route::post('invoice/store', 'InvoiceController@store')->name('invoice.store');
     Route::get('invoice/edit/{id}', 'InvoiceController@edit')->name('invoice.edit');
     Route::put('invoice/update/{id}', 'InvoiceController@update')->name('invoice.update');
     Route::delete('invoice/destory/{id}', 'InvoiceController@destory')->name('invoice.destory');
+
+    // Compoany Route
+    Route::get('company/costs', 'CompanyCostController@index')->name('company.cost.index');
+    Route::post('company/costs/store', 'CompanyCostController@store')->name('company.cost.store');
+    Route::get('company/costs/edit/{id}', 'CompanyCostController@edit')->name('company.cost.edit');
+    Route::put('company/costs/update/{id}', 'CompanyCostController@update')->name('company.cost.update');
+    Route::delete('company/costs/destory/{id}', 'CompanyCostController@destory')->name('company.cost.destory');
     
 });

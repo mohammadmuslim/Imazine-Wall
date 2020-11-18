@@ -1,5 +1,5 @@
 @extends('layouts.admin_app')
-@section('title', 'admin | invoice-create')
+@section('title', 'admin | invoice-edit')
 @section('content_head')
 <div class="header-body">
     <div class="row align-items-center py-4">

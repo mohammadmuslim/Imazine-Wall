@@ -78,6 +78,7 @@ class CustomerController extends Controller
         );
         return redirect()->route('admin.customer.index')->with($notification);
     }
+    
 
     // Indivisul Customer Report ===========
     public function customerReport($id)

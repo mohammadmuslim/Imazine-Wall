@@ -66,7 +66,7 @@
           <li class="list-group-item">গত 7 দিনের নগদ দিয়েছে:- {{ $sevenDayPaid }} টাকা</li>
           <li class="list-group-item">গত 7 দিনের বোতল :- {{ $sevenDayWaterQ }} টা </li>
           <li class="list-group-item">গত 7 দিনের মোট টাকার পরিমাণ:- {{ $sevenDayTotal }} টাকা</li>
-        </ul>
+      </ul>
     </div>
   </div>
 </div>
