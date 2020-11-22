@@ -73,5 +73,19 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
     Route::get('company/costs/edit/{id}', 'CompanyCostController@edit')->name('company.cost.edit');
     Route::put('company/costs/update/{id}', 'CompanyCostController@update')->name('company.cost.update');
     Route::delete('company/costs/destory/{id}', 'CompanyCostController@destory')->name('company.cost.destory');
+
+    // Cashin Route
+    Route::get('cashins', 'CashinController@index')->name('cashin.index');
+    Route::post('cashins/store', 'CashinController@store')->name('cashin.store');
+    Route::get('cashins/edit/{id}', 'CashinController@edit')->name('cashin.edit');
+    Route::put('cashins/update/{id}', 'CashinController@update')->name('cashin.update');
+    Route::delete('cashins/destory/{id}', 'CashinController@destory')->name('cashin.destory');
+
+    // Cashin Route
+    Route::get('montly-sales', 'MonthlySaleController@index')->name('monthly.sale.index');
+    Route::post('montly-sale/store', 'MonthlySaleController@store')->name('monthly.sale.store');
+    Route::get('montly-sale/edit/{id}', 'MonthlySaleController@edit')->name('monthly.sale.edit');
+    Route::put('montly-sale/update/{id}', 'MonthlySaleController@update')->name('monthly.sale.update');
+    Route::delete('montly-sale/destory/{id}', 'MonthlySaleController@destory')->name('monthly.sale.destory');
     
 });

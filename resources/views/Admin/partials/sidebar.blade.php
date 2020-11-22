@@ -85,6 +85,21 @@ $route  = Route::current()->getName();
           </li>
 
           <li class="nav-item">
+            <a class="nav-link" href="#cash_in" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples1">
+              <i class="fas fa-wallet text-primary"></i>
+              <span class="nav-link-text">প্রতিদিনের ক্যাশ ইন তালিকা</span>
+            </a>
+            <div class="collapse collapse-show" id="cash_in">
+              <ul class="nav nav-sm flex-column">
+                <li class="nav-item">
+                  <a href="{{ route('admin.cashin.index') }}" class="nav-link">ক্যাশ ইন যুক্ত করুন</a>
+                  <a href="{{ route('admin.monthly.sale.index') }}" class="nav-link">মোট বিক্রয় যুক্ত করুন </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link" href="{{ route('admin.search.report') }}">
               <i class="fas fa-dumpster text-primary"></i>
               <span class="nav-link-text">সব ধরনের হিসাব দেখুন</span>
