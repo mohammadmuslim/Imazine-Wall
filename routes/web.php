@@ -56,8 +56,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
     
     // Search Report
     Route::get('search/report', 'ReportController@searchReport')->name('search.report');
-    Route::post('search/report/resuit', 'ReportController@searchReportResuit')->name('search.report.resuit');
-    Route::post('company/search/report/', 'ReportController@companysearchReport')->name('company.search.report');
+    Route::post('dealer/report', 'ReportController@searchReportResuit')->name('search.report.resuit');
+    Route::post('company/cost/report', 'ReportController@companysearchReport')->name('company.search.report');
+    Route::post('company/cashin/report', 'ReportController@companyCashin')->name('company.cashin.report');
+    Route::post('company/totalamount/report', 'ReportController@companyTotalAmount')->name('company.totalamount.report');
 
     // Invoice Route
     Route::get('invoices', 'InvoiceController@index')->name('invoice.index');
@@ -67,21 +69,21 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
     Route::put('invoice/update/{id}', 'InvoiceController@update')->name('invoice.update');
     Route::delete('invoice/destory/{id}', 'InvoiceController@destory')->name('invoice.destory');
 
-    // Compoany Route
+    // Compoany Costs Route
     Route::get('company/costs', 'CompanyCostController@index')->name('company.cost.index');
     Route::post('company/costs/store', 'CompanyCostController@store')->name('company.cost.store');
     Route::get('company/costs/edit/{id}', 'CompanyCostController@edit')->name('company.cost.edit');
     Route::put('company/costs/update/{id}', 'CompanyCostController@update')->name('company.cost.update');
     Route::delete('company/costs/destory/{id}', 'CompanyCostController@destory')->name('company.cost.destory');
 
-    // Cashin Route
+    // Compoany Cashin Route
     Route::get('cashins', 'CashinController@index')->name('cashin.index');
     Route::post('cashins/store', 'CashinController@store')->name('cashin.store');
     Route::get('cashins/edit/{id}', 'CashinController@edit')->name('cashin.edit');
     Route::put('cashins/update/{id}', 'CashinController@update')->name('cashin.update');
     Route::delete('cashins/destory/{id}', 'CashinController@destory')->name('cashin.destory');
 
-    // Cashin Route
+    // Compoany Total Cash Route
     Route::get('montly-sales', 'MonthlySaleController@index')->name('monthly.sale.index');
     Route::post('montly-sale/store', 'MonthlySaleController@store')->name('monthly.sale.store');
     Route::get('montly-sale/edit/{id}', 'MonthlySaleController@edit')->name('monthly.sale.edit');
