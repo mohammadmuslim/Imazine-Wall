@@ -21,6 +21,7 @@ class CreateInvoicesTable extends Migration
             $table->date('date')->nullable();
             $table->integer('water_quantity')->nullable();
             $table->integer('water_price')->nullable();
+            $table->integer('old_due')->nullable();
             $table->integer('due_amount')->nullable();
             $table->integer('paid_amount')->nullable();
             $table->integer('total_amount')->nullable();

@@ -30,6 +30,7 @@
               <th>বোতলের দাম</th>
               <th>নগদ টাকা</th>
               <th>বাকি টাকা</th>
+              <th>আগের সপ্তাহের বাকি</th>
               <th>মোট টাকা</th>
               <th>Action</th>
             </tr>
@@ -42,6 +43,7 @@
               <td>{{ $row->water_price }}</td>
               <td>{{ $row->paid_amount }}</td>
               <td>{{ $row->due_amount }}</td>
+              <td>{{ $row->old_due }}</td>
               <td>{{ $row->total_amount }}</td>
               <td>
                   <a title="Edit" class="btn btn-success btn-sm" href="{{ route('admin.invoice.edit', $row->id) }}">
@@ -64,6 +66,7 @@
       <ul class="list-group">
           <li class="list-group-item active">গত 7 দিনের বাকি আছে:- {{ $sevenDayDue }} টাকা</li>
           <li class="list-group-item">গত 7 দিনের নগদ দিয়েছে:- {{ $sevenDayPaid }} টাকা</li>
+          <li class="list-group-item">গত 7 দিনের পাওনা আছে:- {{ $sevenDayNewDue }} টাকা</li>
           <li class="list-group-item">গত 7 দিনের বোতল :- {{ $sevenDayWaterQ }} টা </li>
           <li class="list-group-item">গত 7 দিনের মোট টাকার পরিমাণ:- {{ $sevenDayTotal }} টাকা</li>
       </ul>

@@ -32,6 +32,7 @@
                 <th>বোতলের সংখ্যা</th>
                 <th>নগদ টাকা</th>
                 <th>বাকি টাকা</th>
+                <th>আগের সপ্তাহের বাকি</th>
                 <th>মোট টাকা</th>
                 <th>Action</th>
               </tr>
@@ -44,6 +45,7 @@
                 <td>{{ $row->water_quantity }}</td>
                 <td>{{ $row->paid_amount }}</td>
                 <td>{{ $row->due_amount }}</td>
+                <td>{{ $row->old_due }}</td>
                 <td>{{ $row->total_amount }}</td>
                 <td>
                     <a title="Edit" class="btn btn-success btn-sm" href="{{ route('admin.invoice.edit', $row->id) }}">

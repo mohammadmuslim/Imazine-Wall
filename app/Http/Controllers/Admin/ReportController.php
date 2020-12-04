@@ -42,9 +42,14 @@ class ReportController extends Controller
         $delarTotalAmount = invoice::whereBetween('date', [$start_date, $end_date])->where('customer_id', $customer)->sum('total_amount');
         $delarPaidAmount  = invoice::whereBetween('date', [$start_date, $end_date])->where('customer_id', $customer)->sum('paid_amount');
         $delarDueAmount   = invoice::whereBetween('date', [$start_date, $end_date])->where('customer_id', $customer)->sum('due_amount');
+        $oldDue           = invoice::whereBetween('date', [$start_date, $end_date])->where('customer_id', $customer)->sum('old_due');
+        
+        // Delar Old Due + new due 
+        $sumOlddueNewdue  = $oldDue + $delarDueAmount;
+        $delarNewDue      =  $sumOlddueNewdue - $delarPaidAmount;
         $delarWaterQ      = invoice::whereBetween('date', [$start_date, $end_date])->where('customer_id', $customer)->sum('water_quantity');
         
-        $pdf = PDF::loadView('Admin.pdf.customer_report', compact('customerName', 'start_date', 'end_date', 'delarReports', 'delarTotalAmount', 'delarPaidAmount', 'delarDueAmount', 'delarWaterQ'));
+        $pdf = PDF::loadView('Admin.pdf.customer_report', compact('customerName', 'start_date', 'end_date', 'delarReports', 'delarTotalAmount', 'delarPaidAmount', 'delarDueAmount', 'delarWaterQ', 'delarNewDue', 'oldDue'));
 	    $pdf->SetProtection(['copy', 'print'], '', 'pass');
 	    return $pdf->stream('document.pdf');
     }

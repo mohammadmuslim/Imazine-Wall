@@ -40,6 +40,7 @@ class InvoiceController extends Controller
         $invoiceStore->date           = date('Y-m-d', strtotime($request->date));
         $invoiceStore->water_quantity = $request->water_quantity;
         $invoiceStore->water_price    = $request->water_price;
+        $invoiceStore->old_due        = $request->old_due;
         $invoiceStore->paid_amount    = $request->paid_amount;
         $invoiceStore->due_amount     = $request->due_amount;
         $invoiceStore->total_amount   = $total_amount;
@@ -77,6 +78,7 @@ class InvoiceController extends Controller
         $invoiceUpdate->date           = date('Y-m-d', strtotime($request->date));
         $invoiceUpdate->water_quantity = $request->water_quantity;
         $invoiceUpdate->water_price    = $request->water_price;
+        $invoiceUpdate->old_due        = $request->old_due;
         $invoiceUpdate->paid_amount    = $request->paid_amount;
         $invoiceUpdate->due_amount     = $request->due_amount;
         $invoiceUpdate->total_amount   = $total_amount;

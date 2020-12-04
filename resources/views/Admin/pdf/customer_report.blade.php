@@ -23,6 +23,7 @@
 			<td>Date</td>
 			<td>Bottle Quantity</td>
             <td>Bottle Rate</td>
+            <td>Old Due</td>
             <td>Cash In</td>
             <td>Due Amount</td>
             <td>Total Amount</td>
@@ -34,6 +35,7 @@
 			<td>{{ date('d-m-Y', strtotime($row->date)) }}</td>
             <td>{{ $row->water_quantity }}</td>
             <td>{{ $row->water_price }} TK</td>
+            <td>{{ $row->old_due }} TK</td>
             <td>{{ $row->paid_amount }} TK</td>
             <td>{{ $row->due_amount }} TK</td>
             <td>{{ $row->total_amount }} TK</td>
@@ -43,9 +45,19 @@
             <td></td>
             <td style="text-align: right; color:green;">Total Bottle:- {{ $delarWaterQ }}</td>
             <td></td>
+            <td style="color:green;">Old Due:- {{ $oldDue }}</td>
             <td style="color:green;">CashIn:- {{ $delarPaidAmount }} TK</td>
             <td style="color:green;">Due:- {{ $delarDueAmount }} TK</td>
 			<td style="color:green;">Total:- {{ $delarTotalAmount }} TK</td>
+		</tr>
+		<tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td style="color:green;">NewDue:- {{ $delarNewDue }} TK</td>
+			<td></td>
 		</tr>
 	</tbody>
 </table>

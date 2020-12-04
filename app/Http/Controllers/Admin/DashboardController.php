@@ -41,11 +41,9 @@ class DashboardController extends Controller
         $todayCompanyCost = companycost::whereDate('date', today())->sum('costs');
 
         // This Month Invoice Report
-        $thisMonthSale    = invoice::whereMonth('date', date('m'))->sum('total_amount');
         $ThisMonthCosts   = companycost::whereMonth('date', date('m'))->sum('costs');
-        $thisMonthRavniue = $thisMonthSale - $ThisMonthCosts;
 
-        return view('Admin.dashboard', compact('todaySale', 'todayDue', 'todayPaid', 'todayWaterQuantity', 'todayCompanyCost', 'thisMonthSale', 'ThisMonthCosts', 'thisMonthRavniue'));
+        return view('Admin.dashboard', compact('todaySale', 'todayDue', 'todayPaid', 'todayWaterQuantity', 'todayCompanyCost', 'ThisMonthCosts'));
     }
     // Admin Logout
     public function logout()

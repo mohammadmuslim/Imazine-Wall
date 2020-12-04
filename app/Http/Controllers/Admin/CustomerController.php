@@ -91,12 +91,17 @@ class CustomerController extends Controller
         $sevenDayPaid    = $sevenDayInvoice->sum('paid_amount');
         $sevenDayDue     = $sevenDayInvoice->sum('due_amount');
         $sevenDayWaterQ  = $sevenDayInvoice->sum('water_quantity');
+        $sevenDayOldDue  = $sevenDayInvoice->sum('old_due');
+
+        // Sumiation Due + Old Due
+        $sumDueOldDue = $sevenDayOldDue + $sevenDayDue;
+        $sevenDayNewDue  = $sumDueOldDue - $sevenDayPaid;
         // This Month Report
         $thisMonthReport      = invoice::where('customer_id', $id)->whereMonth('date', '=', date('m'))->get();
         $thisMonthTotalAmount = $thisMonthReport->sum('total_amount');
         $thisMonthPaidAmount  = $thisMonthReport->sum('paid_amount');
         $thisMonthDueAmount   = $thisMonthReport->sum('due_amount');
         $thisMonthWaterQ      = $thisMonthReport->sum('water_quantity');
-        return view('Admin.report.customer_monthly_report', compact('customer_name', 'thisMonthReport', 'thisMonthTotalAmount', 'thisMonthPaidAmount', 'thisMonthDueAmount', 'thisMonthWaterQ', 'sevenDayInvoice', 'sevenDayTotal', 'sevenDayPaid', 'sevenDayDue', 'sevenDayWaterQ'));
+        return view('Admin.report.customer_monthly_report', compact('customer_name', 'thisMonthReport', 'thisMonthTotalAmount', 'thisMonthPaidAmount', 'thisMonthDueAmount', 'thisMonthWaterQ', 'sevenDayInvoice', 'sevenDayTotal', 'sevenDayPaid', 'sevenDayDue', 'sevenDayWaterQ', 'sevenDayNewDue'));
     }
 }

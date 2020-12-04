@@ -49,21 +49,33 @@
 
                 <div class="col-md-6 col-sm-12">
                     <div class="form-group">
-                        <label class="form-control-label" for="paid_amount">নগদ টাকা</label>
-                        <input type="number" class="form-control" id="paid_amount" name="paid_amount" required>
+                        <label class="form-control-label" for="old_due">আগের সপ্তাহের বাকি</label>
+                        <input type="number" class="form-control" id="old_due" name="old_due" required>
                     </div>
                 </div><!-- End Colum -->
+
             </div><!-- End Form rwo -->
 
             <div class="form-row">
+
+                 <div class="col-md-6 col-sm-12">
+                    <div class="form-group">
+                        <label class="form-control-label" for="paid_amount">আজকের  নগদ টাকা</label>
+                        <input type="number" class="form-control" id="paid_amount" name="paid_amount" required>
+                    </div>
+                </div><!-- End Colum -->
+
                 <div class="col-md-6 col-sm-12">
                     <div class="form-group">
-                        <label class="form-control-label" for="due_amount">বাকি টাকা</label>
+                        <label class="form-control-label" for="due_amount">আজকের বাকি টাকা</label>
                         <input type="number" class="form-control" id="due_amount" name="due_amount" required>
                     </div>
                 </div><!-- End Colum -->
 
-                <div class="col-md-6 col-sm-12">
+            </div><!-- End Form rwo -->
+
+            <div class="form-row">
+                <div class="col-md-12 col-sm-12 col-lg-12">
                     <div class="form-group">
                         <label class="form-control-label" for="customer_id">ডিলার এর নাম সিলেক্ট করুন</label>
                         <select required data-toggle="select" class="form-control"  id="customer_id" name="customer_id">
@@ -74,7 +86,8 @@
                         </select>
                     </div>
                 </div><!-- End Colum -->
-            </div><!-- End Form rwo -->
+
+            </div>
 
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="বিক্রয় করুন">

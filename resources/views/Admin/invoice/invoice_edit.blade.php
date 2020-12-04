@@ -65,6 +65,15 @@
 
                 <div class="col-md-6 col-sm-12">
                     <div class="form-group">
+                        <label class="form-control-label" for="old_due">আগের সপ্তাহের বাকি</label>
+                        <input type="number" class="form-control" id="old_due" name="old_due" value="{{ $invoiceEdit->old_due }}">
+                    </div>
+                </div><!-- End Colum -->
+            </div><!-- End Form rwo -->
+
+            <div class="form-row">
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <div class="form-group">
                         <label class="form-control-label" for="customer_id">ডিলার এর নাম সিলেক্ট করুন</label>
                         <select required data-toggle="select" class="form-control"  id="customer_id" name="customer_id">
                             <option></option>
@@ -73,8 +82,8 @@
                             @endforeach
                         </select>
                     </div>
-                </div><!-- End Colum -->
-            </div><!-- End Form rwo -->
+                </div>
+            </div>
 
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="আপডেট করুন">
