@@ -11,4 +11,6 @@ class shopcost extends Controller
     public function index(){
         return view('Admin.shopcost.index');
     }
+
+    
 }

@@ -60,7 +60,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
 
      //collection route
 
-     Route::get('/collection','collection@index')->name('collection.index');
+     Route::get('/collection','CollectionController@index')->name('collection.index');
+     Route::post('/collection/store','CollectionController@store')->name('collection.store');
+     Route::get('/collection/edit/{id}','CollectionController@edit')->name('collection.edit');
+     Route::put('/collection/update/{id}','CollectionController@update')->name('collection.update');
+     Route::delete('/collection/delete/{id}','CollectionController@delete')->name('collection.delete');
 
      //addshop route
 
