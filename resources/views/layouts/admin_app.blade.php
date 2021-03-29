@@ -101,10 +101,7 @@
             @endforeach
         @endif
     </script>
-<<<<<<< HEAD
 
-
-    <--sweet-alert collection  delete-->
     <script type="text/javascript">
         function itemdelete(id){
             const swalWithBootstrapButtons = Swal.mixin({
@@ -141,10 +138,6 @@
         }
 
     </script>
-=======
-    
->>>>>>> 661faed257d2af4e2ece3e336c7e815a0479a50c
-
 
     <!--- Sweet-Alert --->
     <script type="text/javascript">
@@ -183,5 +176,6 @@
         }
 
     </script>
+    <!-- repetar js --->
 </body>
 </html>
