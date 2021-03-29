@@ -28,4 +28,11 @@ class AddshopController extends Controller
         );
         return redirect()->back()->with($notification);
     }
+
+    // Shop View
+    public function shopview($id)
+    {
+        $shop_single_view = addshop::findOrFail($id);
+        return view('Admin.addshop.shop_single_view', compact('shop_single_view'));
+    }
 }

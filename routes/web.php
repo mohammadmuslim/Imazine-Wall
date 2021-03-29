@@ -67,13 +67,13 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
      Route::delete('/collection/delete/{id}','CollectionController@delete')->name('collection.delete');
 
      //addshop route
-
      Route::get('/addshop','AddshopController@index')->name('addshop.index');
      Route::post('/addshop/added','AddshopController@addshop')->name('addshop.added');
-
+     // All Shop route
+     Route::get('/shop/{id}','AddshopController@shopview')->name('shop.view');
      
-     //addshop route
 
+     //addshop route
      Route::get('/stock','stock@index')->name('stock.index');
     
     

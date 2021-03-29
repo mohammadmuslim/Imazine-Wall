@@ -1,3 +1,6 @@
+@php
+    $allstoplist = App\Models\addshop::get();
+@endphp
 <nav class="sidenav navbar navbar-vertical fixed-left navbar-expand-xs navbar-light bg-white" id="sidenav-main">
     <div class="scrollbar-inner">
         <!-- Brand -->
@@ -29,12 +32,7 @@
                         </a>
                         @endif
                     </li>
-                    <!----------------- Admin Sidevar Here --------------------
-         --------------------------------------------------------->
-
-
-
-
+                    <!----------------- Admin Sidevar Here -------------------------->
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.sell.index') }}">
                             <i class="fas fa-user text-primary"></i>
@@ -43,10 +41,19 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.allstore.index') }}">
-                            <i class="fas fa-user text-primary"></i>
+                        <a class="nav-link" href="#company_cost" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples1">
+                            <i class="fas fa-industry text-primary"></i>
                             <span class="nav-link-text">সব দোকানের তালিকা</span>
                         </a>
+                        <div class="collapse collapse-show" id="company_cost">
+                            <ul class="nav nav-sm flex-column">
+                                @foreach($allstoplist as $key => $row)
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.shop.view', $row->id) }}" class="nav-link">{{ $key+1 }}. {{ $row->shop_name }}</a>
+                                </li>
+                                @endforeach
+                            </ul>
+                        </div>
                     </li>
 
                     <li class="nav-item">
