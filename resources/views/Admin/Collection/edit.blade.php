@@ -1,6 +1,19 @@
 @extends('layouts.admin_app')
 @section('title', 'Admin | Dashboard')
 @section('content_head')
+<<<<<<< HEAD
+
+
+<div class="card">
+    <div class="card-header">
+        Edit Collection
+    </div>
+    <div class="card-body">
+        <form action="{{ route('admin.collection.update', $collection_edit->id) }}" method="POST">
+            @csrf
+            @method('put')
+
+=======
 <div class="card mb-4">
     <!-- Card header -->
     <div class="card-header">
@@ -15,6 +28,7 @@
           <form action="{{ route('admin.collection.update', $collection_edit->id) }}" method="POST">
             @csrf
             @method('put')
+>>>>>>> 661faed257d2af4e2ece3e336c7e815a0479a50c
             <div class="form-group">
                 <label class="form-control-label" for="date">Date</label>
                 <input type="date" class="form-control" id="date" name="date" value="{{ $collection_edit->date }}">
@@ -31,6 +45,15 @@
             </div>
 
             <div class="form-group">
+<<<<<<< HEAD
+                <input type="submit" class="btn btn-primary" value="যুক্ত করুন">
+            </div>
+
+          </form>
+    </div>
+</div>
+
+=======
                 <input type="submit" class="btn btn-primary" value="Update">
             </div>
 
@@ -40,4 +63,5 @@
       </div><!--- End row -->
     </div><!-- End Card Body -->
 </div><!-- end card -->
+>>>>>>> 661faed257d2af4e2ece3e336c7e815a0479a50c
 @endsection

@@ -68,7 +68,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
 
      //addshop route
 
-     Route::get('/addshop','addshop@index')->name('addshop.index');
+     Route::get('/addshop','AddshopController@index')->name('addshop.index');
+     Route::post('/addshop/added','AddshopController@addshop')->name('addshop.added');
 
      
      //addshop route
