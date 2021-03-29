@@ -102,8 +102,6 @@
         @endif
     </script>
     
-
-
     <!--- Sweet-Alert --->
     <script type="text/javascript">
         function itemdelete(id){
@@ -140,6 +138,13 @@
                 })
         }
 
+    </script>
+    <!-- repetar js --->
+    <script type="text/javascript">
+        /* Create Repeater */
+        $("#repeater").createRepeater({
+            showFirstItemToDefault: true,
+        });
     </script>
 </body>
 </html>
