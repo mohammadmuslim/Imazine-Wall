@@ -65,8 +65,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
      Route::get('/collection/edit/{id}','CollectionController@edit')->name('collection.edit');
      Route::put('/collection/update/{id}','CollectionController@update')->name('collection.update');
      Route::delete('/collection/delete/{id}','CollectionController@delete')->name('collection.delete');
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 661faed257d2af4e2ece3e336c7e815a0479a50c
 
      //addshop route
 

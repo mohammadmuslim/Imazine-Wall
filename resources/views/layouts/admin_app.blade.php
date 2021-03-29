@@ -68,6 +68,7 @@
   <!-- Sweet-Alert  -->
   <script src="{{ asset('public/Backend/assets/vendor/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
   <script src="{{ asset('public/Backend/assets/vendor/sweetalert2/sweet-alert.init.js') }}"></script>
+
   @stack('js')
    <!--- Toastr Message --->
     <script>
@@ -100,6 +101,7 @@
             @endforeach
         @endif
     </script>
+<<<<<<< HEAD
 
 
     <--sweet-alert collection  delete-->
@@ -139,11 +141,14 @@
         }
 
     </script>
+=======
+    
+>>>>>>> 661faed257d2af4e2ece3e336c7e815a0479a50c
 
 
     <!--- Sweet-Alert --->
     <script type="text/javascript">
-        function deleteItem(id){
+        function itemdelete(id){
             const swalWithBootstrapButtons = Swal.mixin({
                     customClass: {
                         confirmButton: 'btn btn-success',
