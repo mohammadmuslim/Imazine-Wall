@@ -30,8 +30,14 @@
             </div>
 
             <div class="form-group">
-                <label class="form-control-label" for="name">Shop Name</label>
-                <input type="text" class="form-control" id="name" name="name" value="{{ $collection_edit->shop_name }}">
+              <label class="form-control-label" for="customer_id">ডিলার এর নাম সিলেক্ট করুন</label>
+              <select required data-toggle="select" class="form-control"  id="customer_id" name="shop_id">
+                <option></option>
+                
+                @foreach($shop_data as $row)
+                <option {{ ($row->id == $collection_edit->shop_id) ? 'selected' : '' }} value="{{ $row->id }}">{{ $row->shop_name }}</option>
+                @endforeach
+              </select>
             </div>
 
             <div class="form-group">
