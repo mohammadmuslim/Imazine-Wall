@@ -56,7 +56,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
     
      //shop cost route
 
-     Route::get('/sohpcost','shopcost@index')->name('shopcost.index');
+     Route::get('/sohpcost','ShopcostController@index')->name('shopcost.index');
+     Route::post('/sohpcost/added','ShopcostController@costadd')->name('shopcost.added');
+     Route::get('/sohpcost/edit/{id}','ShopcostController@costedit')->name('shopcost.edit');
+     Route::put('/sohpcost/update/{id}','ShopcostController@update')->name('shopcost.update');
+
+
 
      //collection route
 
