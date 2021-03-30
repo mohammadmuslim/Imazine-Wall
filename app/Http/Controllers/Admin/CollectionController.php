@@ -3,32 +3,33 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Auth;
+use App\Models\addshop;
 use App\Models\collection;
-
+use Auth;
+use Illuminate\Http\Request;
 
 class CollectionController extends Controller
 {
     //
-    public function index(){
+    public function index()
+    {
         $collection_data = collection::latest()->paginate(5);
-    	return view('Admin.collection.index',compact('collection_data'));
+        $shop_data       = addshop::select('id', 'shop_name')->get();
+        return view('Admin.collection.index', compact('collection_data', 'shop_data'));
     }
 
     //store
-    public function store(Request $request){
-        $collection_store = new collection();
+    public function store(Request $request)
+    {
+        $collection_store            = new collection();
         $collection_store->user_name = Auth::user()->name;
-        $collection_store->date = $request->date;
-        $collection_store->shop_name = $request->name;
-        $collection_store->amount = $request->amount;
+        $collection_store->shop_id   = $request->shop_id;
+        $collection_store->date      = $request->date;
+        $collection_store->amount    = $request->amount;
         $collection_store->save();
 
-
-
-          // Notification
-          $notification = array(
+        // Notification
+        $notification = array(
             'message'    => 'টাকা সংরক্ষণ সফল হয়েছে',
             'alert-type' => 'success',
         );
@@ -36,20 +37,23 @@ class CollectionController extends Controller
     }
 
     //edit
-    public function edit($id){
+    public function edit($id)
+    {
         $collection_edit = collection::find($id);
-        return view('Admin.collection.edit',compact('collection_edit'));
+        $shop_data       = addshop::select('id', 'shop_name')->get();
+        return view('Admin.collection.edit', compact('collection_edit', 'shop_data'));
 
     }
 
     //update
 
-    public function update(Request $request, $id){
-        $collection_update = collection::find($id);
+    public function update(Request $request, $id)
+    {
+        $collection_update            = collection::find($id);
         $collection_update->user_name = Auth::user()->name;
-        $collection_update->date = $request->date;
-        $collection_update->shop_name= $request->name;
-        $collection_update->amount = $request->amount;
+        $collection_update->shop_id   = $request->shop_id;
+        $collection_update->date      = $request->date;
+        $collection_update->amount    = $request->amount;
         $collection_update->save();
 
         // Notification
@@ -62,12 +66,13 @@ class CollectionController extends Controller
     }
 
     //delete
-    public function delete($id){
+    public function delete($id)
+    {
         $collection_delete = collection::find($id);
         $collection_delete->delete();
 
-         // Notification
-         $notification = array(
+        // Notification
+        $notification = array(
             'message'    => 'টাকা সংরক্ষণ মুছে ফেলা হলো',
             'alert-type' => 'success',
         );

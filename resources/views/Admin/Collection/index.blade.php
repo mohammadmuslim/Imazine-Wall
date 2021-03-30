@@ -17,8 +17,14 @@
             </div>
 
             <div class="form-group">
-                <label class="form-control-label" for="name">দোকানের নাম</label>
-                <input type="text" class="form-control" id="name" name="name" required>
+              <label class="form-control-label" for="customer_id">ডিলার এর নাম সিলেক্ট করুন</label>
+              <select required data-toggle="select" class="form-control"  id="customer_id" name="shop_id">
+                <option></option>
+                
+                @foreach($shop_data as $row)
+                <option value="{{ $row->id }}">{{ $row->shop_name }}</option>
+                @endforeach
+              </select>
             </div>
 
             <div class="form-group">
@@ -59,7 +65,7 @@
                 <tr>
                     <td>{{ $row->user_name }}</td>
                     <td>{{ $row->date }}</td>
-                    <td>{{ $row->shop_name }}</td>
+                    <td>{{ $row->addshop->shop_name }}</td>
                     <td>{{ $row->amount }}</td>
                     <td>
                         <a title="Edit" class="btn btn-success btn-sm" href="{{ route('admin.collection.edit',$row->id) }}">
