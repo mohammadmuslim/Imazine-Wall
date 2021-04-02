@@ -80,6 +80,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
 
      //addshop route
      Route::get('/stock','stock@index')->name('stock.index');
+
+     //add prdduct
+     Route::get('/product','ProductController@index')->name('product.index');
+     Route::post('/product/add','ProductController@addproduct')->name('product.add');
+
     
     
 });
