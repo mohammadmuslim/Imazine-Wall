@@ -74,6 +74,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
      //addshop route
      Route::get('/addshop','AddshopController@index')->name('addshop.index');
      Route::post('/addshop/added','AddshopController@addshop')->name('addshop.added');
+
      // All Shop route
      Route::get('/shop/{id}','AddshopController@shopview')->name('shop.view');
      
@@ -84,6 +85,20 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
      //add prdduct
      Route::get('/product','ProductController@index')->name('product.index');
      Route::post('/product/add','ProductController@addproduct')->name('product.add');
+
+    // Stock
+    Route::get('/stock','StockController@index')->name('stock.index');
+    Route::post('/stock/store','StockController@store')->name('stock.store');
+    Route::get('/stock/edit/{id}','StockController@edit')->name('stock.edit');
+    Route::put('/stock/update/{id}','StockController@update')->name('stock.update');
+    Route::delete('/stock/delete/{id}','StockController@delete')->name('stock.delete');
+
+    // Stock
+    Route::get('/stock','StockController@index')->name('stock.index');
+    Route::post('/stock/store','StockController@store')->name('stock.store');
+    Route::get('/stock/edit/{id}','StockController@edit')->name('stock.edit');
+    Route::put('/stock/update/{id}','StockController@update')->name('stock.update');
+    Route::delete('/stock/delete/{id}','StockController@delete')->name('stock.delete');
 
     
     
