@@ -89,23 +89,6 @@
                         </a>
                     </li>
 
-
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#company_cost" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples1">
-                            <i class="fas fa-industry text-primary"></i>
-                            <span class="nav-link-text">কোম্পানির খরচের তালিকা</span>
-                        </a>
-                        <div class="collapse collapse-show" id="company_cost">
-                            <ul class="nav nav-sm flex-column">
-                                <li class="nav-item">
-                                    <a href="" class="nav-link">কোম্পানির খরচ এড করুন</a>
-                                    <a href="" class="nav-link">কোম্পানির এই মাসের খরচ</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </li>
-
                 </ul>
 
             </div>

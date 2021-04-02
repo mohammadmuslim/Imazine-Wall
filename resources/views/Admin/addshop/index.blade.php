@@ -1,8 +1,6 @@
 @extends('layouts.admin_app')
 @section('title', 'Admin | Dashboard')
 @section('content_head')
-
-
 <div class="card">
     <div class="card-header">
         নতুন দোকান যুক্ত করুন
@@ -36,6 +34,4 @@
 
 
 </div>
-
-
 @endsection

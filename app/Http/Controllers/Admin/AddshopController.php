@@ -3,21 +3,23 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\addshop;
+use Illuminate\Http\Request;
 
 class AddshopController extends Controller
 {
-     //
-     public function index(){
-    	return view('Admin.addshop.index');
+    //
+    public function index()
+    {
+        return view('Admin.addshop.index');
     }
     //shop add
 
-    public function addshop(Request $request){
-        $addshop_added = new addshop;
-        $addshop_added->shop_name = $request->shop_name;
-        $addshop_added->shop_adress = $request->shop_adress;
+    public function addshop(Request $request)
+    {
+        $addshop_added                = new addshop;
+        $addshop_added->shop_name     = $request->shop_name;
+        $addshop_added->shop_adress   = $request->shop_adress;
         $addshop_added->mobile_number = $request->mobile_number;
         $addshop_added->save();
 
