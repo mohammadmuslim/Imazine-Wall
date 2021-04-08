@@ -100,6 +100,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
     Route::put('/stock/update/{id}','StockController@update')->name('stock.update');
     Route::delete('/stock/delete/{id}','StockController@delete')->name('stock.delete');
 
+
+    //Bangking
+    Route::get('/bank_data','BankController@index')->name('bank.index');
+    Route::post('/bank_data','BankController@addamount')->name('amount.add');
+
     
     
 });

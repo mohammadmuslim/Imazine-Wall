@@ -1,12 +1,10 @@
 @extends('layouts.admin_app')
 @section('title', 'Admin | Dashboard')
 @section('content_head')
-<<<<<<< HEAD
-
 
 
 @endsection
-=======
+
 <div class="card">
    <div class="card-body">
       <div class="form-group">
@@ -66,4 +64,4 @@
    });
    </script>
 @endpush
->>>>>>> 8bcfd21f97e45e9abd3cecef9b405c84adf38344
+

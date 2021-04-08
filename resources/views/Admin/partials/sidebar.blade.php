@@ -90,7 +90,6 @@
                         </a>
                     </li>
 
-<<<<<<< HEAD
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.product.index') }}">
                             <i class="fas fa-user text-primary"></i>
@@ -98,11 +97,16 @@
                         </a>
                     </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('admin.bank.index') }}">
+                            <i class="fas fa-user text-primary"></i>
+                            <span class="nav-link-text">ব্যাংকিং</span>
+                        </a>
+                    </li>
 
 
 
-=======
->>>>>>> 8bcfd21f97e45e9abd3cecef9b405c84adf38344
+
                 </ul>
 
             </div>
