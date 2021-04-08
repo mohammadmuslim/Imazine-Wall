@@ -96,7 +96,6 @@
                             <span class="nav-link-text">অ্যাড প্রোডাক্ট</span>
                         </a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.bank.index') }}">
                             <i class="fas fa-user text-primary"></i>
@@ -108,8 +107,6 @@
 
 
                 </ul>
-
-            </div>
         </div>
     </div>
 </nav>

@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 @extends('layouts.admin_app')
 @section('title', 'Admin | Dashboard')
 @section('content_head')
@@ -12,13 +10,22 @@
             @csrf
 
             <div class="form-group">
-                <label class="form-control-label" for="shop_name">Prduct Name</label>
-                <input type="text" class="form-control" id="product" name="product_name" required>
+                <label class="form-control-label" for="shop_adress">Stock Date</label>
+                <input type="date" class="form-control" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label class="form-control-label" for="customer_id">Product code</label>
+                <select required data-toggle="select" class="form-control"  id="product_id" name="product_id">
+                <option></option>   
+                @foreach($products as $row)
+                <option value="{{ $row->id }}">{{ $row->product_name }}</option>
+                @endforeach
+              </select>
             </div>
 
             <div class="form-group">
                 <label class="form-control-label" for="shop_adress">Product Quantity</label>
-                <input type="text" class="form-control" id="shop_adress" name="product_quantity" required>
+                <input type="number" class="form-control" id="shop_adress" name="product_quantity" required>
             </div>
             
             <div class="form-group">
@@ -29,4 +36,4 @@
     </div>
 </div>
 @endsection
->>>>>>> 8bcfd21f97e45e9abd3cecef9b405c84adf38344
+

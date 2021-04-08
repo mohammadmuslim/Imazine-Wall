@@ -20,7 +20,6 @@ class ProductController extends Controller
         $add_product->product_name = $request->product_name;
         $add_product->save();
 
-
            // Notification
            $notification = array(
             'message'    => 'সংরক্ষিত হল',
