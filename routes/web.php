@@ -45,13 +45,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
 
     // Sell route
     Route::get('/sell', 'SellController@index')->name('sell.index');
+    Route::post('/sell/store', 'SellController@store')->name('sell.store');
 
     //all store route
-
     Route::get('/allstore','Allstore@index')->name('allstore.index');
 
     //today sell route
-
     Route::get('/todaysell','Todaysell@index')->name('todaysell.index');
     
      //shop cost route

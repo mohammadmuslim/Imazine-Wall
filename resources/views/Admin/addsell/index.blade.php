@@ -1,14 +1,11 @@
 @extends('layouts.admin_app')
 @section('title', 'Admin | Dashboard')
 @section('content_head')
-
-
-@endsection
-
 <div class="card">
    <div class="card-body">
       <div class="form-group">
-         <form name="add_name" id="add_name">
+         <form name="add_name" id="add_name" method="POST" action="{{ route('admin.sell.store') }}">
+            @csrf
             <div class="form-group">
                <label class="form-control-label" for="date">তারিখ</label>
                <input type="date" class="form-control" id="date" name="date" required>
@@ -42,10 +39,10 @@
                      <td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
                   </tr>
                </table>
-               <input type="button" name="submit" id="submit" class="btn btn-info" value="Submit" />
+               <input type="submit" id="submit" class="btn btn-info" value="Submit" />
             </div>
          </form>
-      </div>0
+      </div>
    </div>
 </div>
 @endsection

@@ -13,7 +13,8 @@ class StockController extends Controller
     public function index()
     {
         $products = product::all();
-        return view('Admin.stock.index', compact('products'));
+        $stocks = stock::all();
+        return view('Admin.stock.index', compact('products', 'stocks'));
     }
 
     // Store

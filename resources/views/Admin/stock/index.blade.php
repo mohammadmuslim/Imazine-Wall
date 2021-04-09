@@ -35,5 +35,36 @@
           </form>
     </div>
 </div>
+<!-- Table -->
+<div class="row">
+    <div class="col">
+      <div class="card">
+        <!-- Card header -->
+        <div class="card-header">
+          <h3 class="mb-0">Action buttons</h3>
+        </div>
+        <div class="table-responsive py-4">
+          <table class="table table-flush" id="datatable-buttons">
+            <thead class="thead-light">
+              <tr>
+                <th>Date</th>
+                <th>Product Name</th>
+                <th>Quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+                @foreach($stocks as $row)
+              <tr>
+                <td>{{ $row->date }}</td>
+                <td>{{ $row->product->product_name }}</td>
+                <td>{{ $row->quantity }}</td>
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 @endsection
 
