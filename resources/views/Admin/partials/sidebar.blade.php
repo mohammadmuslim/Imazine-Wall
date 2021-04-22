@@ -35,10 +35,23 @@
                     </li>
                     <!----------------- Admin Sidevar Here -------------------------->
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.sell.index') }}">
-                            <i class="fas fa-user text-primary"></i>
-                            <span class="nav-link-text">বিক্রয় করুন </span>
+                        <a class="nav-link" href="#sell" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples1">
+                            <i class="fas fa-industry text-primary"></i>
+                            <span class="nav-link-text">sell</span>
                         </a>
+                        <div class="collapse collapse-show" id="sell">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.sell.index') }}" class="nav-link">Add Sell</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">Sell Pending List</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="" class="nav-link">Sell Approved List</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
 
                     <li class="nav-item">
@@ -102,9 +115,6 @@
                             <span class="nav-link-text">ব্যাংকিং</span>
                         </a>
                     </li>
-
-
-
 
                 </ul>
         </div>

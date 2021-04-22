@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePmetasTable extends Migration
+class CreateInvoicedetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,15 @@ class CreatePmetasTable extends Migration
      */
     public function up()
     {
-        Schema::create('pmetas', function (Blueprint $table) {
+        Schema::create('invoicedetails', function (Blueprint $table) {
             $table->id();
+            $table->date('date')->nullable();
+            $table->integer('invoice_id');
             $table->integer('product_id');
-            $table->integer('product_quantity');
-            $table->integer('product_price');
+            $table->double('selling_qty');
+            $table->double('unit_price');
+            $table->double('selling_price');
+            $table->tinyInteger('status')->default('0');
             $table->timestamps();
         });
     }
@@ -29,6 +33,6 @@ class CreatePmetasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pmetas');
+        Schema::dropIfExists('invoicedetails');
     }
 }

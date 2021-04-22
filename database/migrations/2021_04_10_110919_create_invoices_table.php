@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAddsellsTable extends Migration
+class CreateInvoicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateAddsellsTable extends Migration
      */
     public function up()
     {
-        Schema::create('addsells', function (Blueprint $table) {
+        Schema::create('invoices', function (Blueprint $table) {
             $table->id();
-            $table->date('date');
+            $table->string('invoice_no');
             $table->integer('shop_id');
-            $table->integer('pmeta_id');
+            $table->date('date')->nullable();
+            $table->tinyInteger('status')->default('0')->comment('0==pending, 1==approved');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateAddsellsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('addsells');
+        Schema::dropIfExists('invoices');
     }
 }

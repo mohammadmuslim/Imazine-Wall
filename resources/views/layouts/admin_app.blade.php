@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title> @yield('title') </title>
+    <title>@yield('title')</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('public/Frontend/assets/images/favicon.png') }}"/>
     <!-- Fonts -->
@@ -81,6 +81,8 @@
   <script src="{{ asset('public/Backend/assets/js/argon.js?v=1.1.0') }}"></script>
   <!--- Toastr js Start --->
   <script src="{{ asset('public/Backend/assets/toster-js/js/toastr.js') }}"></script>
+  <!-- Handlebar js -->
+  <script src="{{ asset('public/Backend/assets/handelbar/js/handlebars.min.js') }}"></script>
   <!-- Sweet-Alert  -->
   <script src="{{ asset('public/Backend/assets/vendor/sweetalert2/dist/sweetalert2.all.min.js') }}"></script>
   <script src="{{ asset('public/Backend/assets/vendor/sweetalert2/sweet-alert.init.js') }}"></script>

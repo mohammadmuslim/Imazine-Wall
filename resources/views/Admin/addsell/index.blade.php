@@ -6,6 +6,7 @@
       <div class="form-group">
          <form name="add_name" id="add_name" method="POST" action="{{ route('admin.sell.store') }}">
             @csrf
+            <input type="hidden" name="invoice_id" value="{{ $invoiceData }}">
             <div class="form-group">
                <label class="form-control-label" for="date">তারিখ</label>
                <input type="date" class="form-control" id="date" name="date" required>
