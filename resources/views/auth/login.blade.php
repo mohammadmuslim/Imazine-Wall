@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title> রুসা ড্রিংকিং ওয়াটার </title>
+    <title>Imazine Walls</title>
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('public/Backend/assets/img/brand/favicon.png') }}" type="image/png">
     <!-- Fonts -->
@@ -20,37 +20,39 @@
     <!-- Toastr CSS -->
     <link href="{{ asset('public/Backend/assets/toster-js/css/toastr.css') }}" rel="stylesheet">
 </head>
- 
- <body class="bg-default">
+
+ <body >
 
    <!-- Main content -->
-   <div class="main-content">
+   <div class="main-content" style="background-image:
+   url(https://cdn.asiatatler.com/asiatatler/i/hk/2020/02/25125016-de-gournay-houghton-hall-design-6_cover_1999x1374.jpg);
+   background-repeat: no-repeat;
+  background-size: cover;
+  height: 750px;">
      <!-- Header -->
-     <div class="header bg-gradient-primary py-6 py-lg-6 pt-lg-6">
+     <div class="header  py-6 py-lg-6 pt-lg-6">
        <div class="container">
          <div class="header-body text-center mb-7">
            <div class="row justify-content-center">
              <div class="col-xl-5 col-lg-6 col-md-8 px-5">
-               <h1 class="text-white">রুসা ড্রিংকিং ওয়াটার লগইন করুন</h1>
+
              </div>
            </div>
          </div>
        </div>
-       <div class="separator separator-bottom separator-skew zindex-100">
-         <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-           <polygon class="fill-default" points="2560 0 2560 100 0 100"></polygon>
-         </svg>
-       </div>
+
      </div>
      <!-- Page content -->
      <div class="container mt--8 pb-5">
        <div class="row justify-content-center">
          <div class="col-lg-5 col-md-7">
-           <div class="card bg-secondary border-0 mb-0">
- 
+           <div class="card  border-0 mb-0" style="background-color: black;
+           opacity: 87%;">
+
              <div class="card-body px-lg-5 py-lg-5">
                <form role="form" method="POST" action="{{ route('login') }}">
                 @csrf
+                <h1 class="text-white">Imazine Walls</h1>
                  <div class="form-group mb-3">
                    <div class="input-group input-group-merge input-group-alternative">
                      <div class="input-group-prepend">
@@ -133,5 +135,5 @@
         @endif
     </script>
  </body>
- 
+
  </html>

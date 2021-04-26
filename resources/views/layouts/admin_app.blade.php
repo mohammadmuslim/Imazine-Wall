@@ -42,7 +42,10 @@
     @include('Admin.partials.header_top')
     <!--- Content Head --->
     <!-- Header -->
-    <div class="header bg-primary pb-6">
+    <div class="header  pb-6" style="background-image:
+    url(https://png.pngtree.com/thumb_back/fw800/background/20200322/pngtree-dark-black-with-gold-dots-pattern-metal-background-for-wallpaper-dan-image_332352.jpg);
+
+   height: 750px;">
       <div class="container-fluid">
         @yield('content_head')
       </div>

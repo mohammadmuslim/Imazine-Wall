@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Models\shopcost;
 
 class ShopcostController extends Controller
@@ -24,7 +24,7 @@ class ShopcostController extends Controller
         $shopcost_add->cost_amount = $request->cost_amount;
         $shopcost_add->save();
 
-        
+
           // Notification
           $notification = array(
             'message'    => 'দোকানের খরচ সংরক্ষিত হল',

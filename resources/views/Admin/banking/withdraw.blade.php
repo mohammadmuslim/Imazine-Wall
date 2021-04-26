@@ -3,10 +3,10 @@
 @section('content_head')
 <div class="card">
     <div class="card-header">
-        ব্যাংক হিসাব
+        Withdraw to Bank
     </div>
     <div class="card-body">
-        <form action="{{ route('admin.amount.add') }}" method="POST">
+        <form action="{{ route('admin.amount.withdraw') }}" method="POST">
             @csrf
 
             <div class="form-group">
@@ -22,8 +22,8 @@
               </div>
 
             <div class="form-group">
-                <label class="form-control-label" for="bank_amount">Collect Amount</label>
-                <input type="text" class="form-control" id="bank_amount" name="bank_amount" required>
+                <label class="form-control-label" for="amount">Withdraw Amount</label>
+                <input type="text" class="form-control" id="amount" name="amount" required>
             </div>
             <div class="form-group">
                 <label class="form-control-label" for="date">Date</label>
@@ -49,25 +49,25 @@
      <div class="card">
        <!-- Card header -->
        <div class="card-header">
-         <h2 class="mb-0">ব্যাংক জমার হিসাব</h2>
+         <h2 class="mb-0">Withdraw History</h2>
        </div>
        <div class="table-responsive py-4 ">
          <table class="table table-flush">
            <thead class="thead-light">
              <tr>
-               <th>তারিখ</th>
-               <th>ব্যাংকের নাম</th>
-               <th>টাকার পরিমান</th>
-               <th>জমা দাতার নাম</th>
+               <th>Date</th>
+               <th>Bank Name</th>
+               <th>Withdraw Amount</th>
+               <th>Author Name</th>
 
              </tr>
            </thead>
            <tbody>
-            @foreach($bank_data as $row)
+            @foreach($data as $row)
                <tr>
                    <td>{{ $row->date }}</td>
                    <td>{{ $row->bank_name }}</td>
-                   <td>{{ $row->bank_amount }}</td>
+                   <td>{{ $row->amount }}</td>
                    <td>{{ $row->user_name }}</td>
 
 
@@ -76,7 +76,7 @@
                @endforeach
            </tbody>
          </table>
-         {{ $bank_data->links() }}
+         {{ $data->links() }}
 
      </div>
    </div>
