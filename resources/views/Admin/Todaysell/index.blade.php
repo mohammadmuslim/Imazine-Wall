@@ -8,11 +8,7 @@
         আজকের বিক্রয়
     </div>
     <div class="card-body">
-        <form>
-            
-           
-          
-            
+        <form>  
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

@@ -46,6 +46,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
     // Sell route
     Route::get('/sell', 'SellController@index')->name('sell.index');
     Route::post('/sell/store', 'SellController@store')->name('sell.store');
+    Route::get('/sell/pending/list', 'SellController@pendingList')->name('sell.pendinglist');
+    Route::get('/sell/approved/{id}', 'SellController@sellingApproved')->name('sell.approved');
+    Route::post('/sell/approved/process/{id}', 'SellController@approvedProcess')->name('invoice.approve.process');
+    Route::get('/sell/approve/lists', 'SellController@approvedList')->name('invoice.approve.list');
+    Route::get('/sell/approve/view/{id}', 'SellController@approvedView')->name('invoice.approved.view');
+    Route::delete('/sell/delete/{id}', 'SellController@sellDelete')->name('invoice.sell.delete');
 
     //all store route
     Route::get('/allstore','Allstore@index')->name('allstore.index');
@@ -60,8 +66,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
      Route::get('/sohpcost/edit/{id}','ShopcostController@costedit')->name('shopcost.edit');
      Route::put('/sohpcost/update/{id}','ShopcostController@update')->name('shopcost.update');
 
-
-
+  
      //collection route
 
      Route::get('/collection','CollectionController@index')->name('collection.index');
@@ -71,6 +76,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
      Route::delete('/collection/delete/{id}','CollectionController@delete')->name('collection.delete');
 
      //addshop route
+     Route::get('/shop-list','AddshopController@shopLists')->name('shop.lists');
      Route::get('/addshop','AddshopController@index')->name('addshop.index');
      Route::post('/addshop/added','AddshopController@addshop')->name('addshop.added');
 

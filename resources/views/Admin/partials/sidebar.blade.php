@@ -46,35 +46,18 @@
                                     <a href="{{ route('admin.sell.index') }}" class="nav-link">Add Sell</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="" class="nav-link">Sell Pending List</a>
+                                    <a href="{{ route('admin.sell.pendinglist') }}" class="nav-link">Sell Pending List</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="" class="nav-link">Sell Approved List</a>
+                                    <a href="{{ route('admin.invoice.approve.list') }}" class="nav-link">Sell Approved List</a>
                                 </li>
                             </ul>
                         </div>
                     </li>
-
                     <li class="nav-item">
-                        <a class="nav-link" href="#company_cost" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples1">
-                            <i class="fas fa-industry text-primary"></i>
-                            <span class="nav-link-text">All Shop List</span>
-                        </a>
-                        <div class="collapse collapse-show" id="company_cost">
-                            <ul class="nav nav-sm flex-column">
-                                @foreach($allstoplist as $key => $row)
-                                <li class="nav-item">
-                                    <a href="{{ route('admin.shop.view', $row->id) }}" class="nav-link">{{ $key+1 }}. {{ $row->shop_name }}</a>
-                                </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.todaysell.index') }}">
+                        <a class="nav-link" href="{{ route('admin.shop.lists') }}">
                             <i class="fas fa-user text-primary"></i>
-                            <span class="nav-link-text">Today Sell List</span>
+                            <span class="nav-link-text">All Shop Lists</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -152,8 +135,6 @@
                             <span class="nav-link-text">Cash</span>
                         </a>
                     </li>
-
-
                 </ul>
         </div>
     </div>

@@ -16,9 +16,11 @@
                 <input type="date" class="form-control" id="date" name="date" required>
             </div>
 
+            <input type="hidden" name="collection_no" value="{{ $collection_no }}">
+
             <div class="form-group">
               <label class="form-control-label" for="customer_id">ডিলার এর নাম সিলেক্ট করুন</label>
-              <select required data-toggle="select" class="form-control"  id="customer_id" name="shop_id">
+              <select required data-toggle="select" class="form-control"  id="customer_id" name="shop_id" required>
                 <option></option>
                 
                 @foreach($shop_data as $row)
@@ -29,7 +31,12 @@
 
             <div class="form-group">
                 <label class="form-control-label" for="amount">টাকা</label>
-                <input type="number" class="form-control" id="amount" name="amount">
+                <input type="number" class="form-control" id="amount" name="amount" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-control-label" for="amount">Discount</label>
+              <input type="number" class="form-control" id="discount" name="discount">
             </div>
 
             <div class="form-group">
@@ -40,33 +47,36 @@
     </div>
 </div>
 
-<!--- Data table start --->
- <!-- Table -->
- <div class="row">
-    <div class="col">
-      <div class="card">
-        <!-- Card header -->
-        <div class="card-header">
-          <h2 class="mb-0"> কালেকশন এর তালিকা</h2>
-        </div>
-        <div class="table-responsive py-4 ">
-          <table class="table table-flush">
-            <thead class="thead-light">
-              <tr>
-                <th>টাকা গ্রহীতার নাম</th>
-                <th>তারিখ</th>
-                <th>দোকানের নাম</th>
-                <th>টাকা</th>
-                <th>পরিবর্তন করুন</th>
-              </tr>
-            </thead>
-            <tbody>
-                @foreach($collection_data as $row)
+<!-- Table -->
+<div class="row">
+  <div class="col">
+    <div class="card">
+      <!-- Card header -->
+      <div class="card-header">
+        <h3 class="mb-0">Action buttons</h3>
+      </div>
+      <div class="table-responsive py-4">
+        <table class="table table-flush" id="datatable-buttons">
+          <thead class="thead-light">
+            <tr>
+              <th>Collection Id</th>
+              <th>টাকা গ্রহীতার নাম</th>
+              <th>তারিখ</th>
+              <th>দোকানের নাম</th>
+              <th>টাকা</th>
+              <th>Discount</th>
+              <th>পরিবর্তন করুন</th>
+            </tr>
+          </thead>
+          <tbody>
+              @foreach($collection_data as $row)
                 <tr>
+                    <td>#{{ $row->collection_id }}</td>
                     <td>{{ $row->user_name }}</td>
                     <td>{{ $row->date }}</td>
                     <td>{{ $row->addshop->shop_name }}</td>
                     <td>{{ $row->amount }}</td>
+                    <td>{{ $row->discount }}</td>
                     <td>
                         <a title="Edit" class="btn btn-success btn-sm" href="{{ route('admin.collection.edit',$row->id) }}">
                             <i class="fa fa-edit"></i>
@@ -80,14 +90,11 @@
                          </form>
                     </td>
                 </tr>
-                @endforeach
-               
-            </tbody>
-          </table>
-
-          {{ $collection_data->links() }}
+              @endforeach
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
-<!--- Data table End ---->
+</div>
 @endsection
