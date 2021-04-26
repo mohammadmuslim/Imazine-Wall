@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
@@ -13,19 +12,32 @@ class CollectionController extends Controller
     //
     public function index()
     {
-        $collection_data = collection::latest()->paginate(5);
-        $shop_data       = addshop::select('id', 'shop_name')->get();
-        return view('Admin.collection.index', compact('collection_data', 'shop_data'));
+        $data['collection_data'] = collection::latest()->paginate(5);
+        $data['shop_data']       = addshop::select('id', 'shop_name')->get();
+
+        $invoice_no = collection::orderBy('id', 'desc')->first();
+
+        if ($invoice_no == null) {
+            $firstInvoice          = '0';
+            $data['collection_no'] = $firstInvoice + 1;
+        } else {
+            $invoiceCheck          = collection::orderBy('id', 'desc')->first()->collection_id;
+            $data['collection_no'] = $invoiceCheck + 1;
+        }
+
+        return view('Admin.collection.index', $data);
     }
 
     //store
     public function store(Request $request)
     {
-        $collection_store            = new collection();
-        $collection_store->user_name = Auth::user()->name;
-        $collection_store->shop_id   = $request->shop_id;
-        $collection_store->date      = $request->date;
-        $collection_store->amount    = $request->amount;
+        $collection_store                = new collection();
+        $collection_store->collection_id = $request->collection_no;
+        $collection_store->user_name     = Auth::user()->name;
+        $collection_store->shop_id       = $request->shop_id;
+        $collection_store->date          = $request->date;
+        $collection_store->amount        = $request->amount;
+        $collection_store->discount      = $request->discount;
         $collection_store->save();
 
         // Notification
@@ -39,9 +51,10 @@ class CollectionController extends Controller
     //edit
     public function edit($id)
     {
-        $collection_edit = collection::find($id);
-        $shop_data       = addshop::select('id', 'shop_name')->get();
-        return view('Admin.collection.edit', compact('collection_edit', 'shop_data'));
+        $data['collection_edit'] = collection::find($id);
+        $data['shop_data']       = addshop::select('id', 'shop_name')->get();
+
+        return view('Admin.collection.edit', $data);
 
     }
 
@@ -49,11 +62,12 @@ class CollectionController extends Controller
 
     public function update(Request $request, $id)
     {
-        $collection_update            = collection::find($id);
-        $collection_update->user_name = Auth::user()->name;
-        $collection_update->shop_id   = $request->shop_id;
-        $collection_update->date      = $request->date;
-        $collection_update->amount    = $request->amount;
+        $collection_update               = collection::find($id);
+        $collection_update->user_name    = Auth::user()->name;
+        $collection_update->shop_id      = $request->shop_id;
+        $collection_update->date         = $request->date;
+        $collection_update->amount       = $request->amount;
+        $collection_update->discount     = $request->discount;
         $collection_update->save();
 
         // Notification

@@ -1,6 +1,3 @@
-@php
-    $allstoplist = App\Models\addshop::get();
-@endphp
 <nav class="sidenav navbar navbar-vertical fixed-left navbar-expand-xs navbar-light bg-white" id="sidenav-main">
     <div class="scrollbar-inner">
         <!-- Brand -->
@@ -45,35 +42,19 @@
                                     <a href="{{ route('admin.sell.index') }}" class="nav-link">Add Sell</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="" class="nav-link">Sell Pending List</a>
+                                    <a href="{{ route('admin.sell.pendinglist') }}" class="nav-link">Sell Pending List</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="" class="nav-link">Sell Approved List</a>
+                                    <a href="{{ route('admin.invoice.approve.list') }}" class="nav-link">Sell Approved List</a>
                                 </li>
                             </ul>
                         </div>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#company_cost" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples1">
-                            <i class="fas fa-industry text-primary"></i>
-                            <span class="nav-link-text">সব দোকানের তালিকা</span>
-                        </a>
-                        <div class="collapse collapse-show" id="company_cost">
-                            <ul class="nav nav-sm flex-column">
-                                @foreach($allstoplist as $key => $row)
-                                <li class="nav-item">
-                                    <a href="{{ route('admin.shop.view', $row->id) }}" class="nav-link">{{ $key+1 }}. {{ $row->shop_name }}</a>
-                                </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.todaysell.index') }}">
+                        <a class="nav-link" href="{{ route('admin.shop.lists') }}">
                             <i class="fas fa-user text-primary"></i>
-                            <span class="nav-link-text">আজকের বিক্রয় হিসাব</span>
+                            <span class="nav-link-text">সব দোকানের তালিকা</span>
                         </a>
                     </li>
                     <li class="nav-item">

@@ -15,10 +15,12 @@ class CreateCollectionsTable extends Migration
     {
         Schema::create('collections', function (Blueprint $table) {
             $table->id();
+            $table->integer('collection_id');
             $table->string('user_name');
             $table->string('shop_id');
             $table->date('date');
             $table->integer('amount');
+            $table->integer('discount')->nullable();
             $table->timestamps();
         });
     }

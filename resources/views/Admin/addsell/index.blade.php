@@ -27,14 +27,14 @@
                <table class="table table-bordered" id="dynamic_field">
                   <tr>
                      <td>
-                        <input type="text" name="product_id[]" placeholder="প্রোডাক্ট আইডি" class="form-control product_id" />
+                        <input  required type="number" name="product_id[]" placeholder="প্রোডাক্ট আইডি" class="form-control product_id" />
                      </td>
                      <td>
-                        <input type="number" name="quantity[]
+                        <input required type="number" name="quantity[]
                         " placeholder="প্রোডাক্ট সংখ্যা" class="form-control product_quantity" />
                      </td>
                      <td>
-                        <input type="number" name="price[]
+                        <input required type="number" name="price[]
                         " placeholder="প্রোডাক্ট দাম" class="form-control product_price" />
                      </td>
                      <td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
@@ -44,6 +44,35 @@
             </div>
          </form>
       </div>
+   </div>
+</div>
+<!-- Table -->
+<div class="row">
+   <div class="col">
+     <div class="card">
+       <!-- Card header -->
+       <div class="card-header">
+         <h3 class="mb-0">Products Lists</h3>
+       </div>
+       <div class="table-responsive py-4">
+         <table class="table table-flush" id="datatable-buttons">
+           <thead class="thead-light">
+             <tr>
+               <th>Page No</th>
+               <th>Product Name</th>
+             </tr>
+           </thead>
+           <tbody>
+            @foreach($products as $row)
+             <tr>
+               <td>{{ $row->id }}</td>
+               <td>{{ $row->product_name }}</td>
+             </tr>
+            @endforeach
+           </tbody>
+         </table>
+       </div>
+     </div>
    </div>
 </div>
 @endsection

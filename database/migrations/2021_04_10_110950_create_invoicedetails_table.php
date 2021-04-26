@@ -18,6 +18,7 @@ class CreateInvoicedetailsTable extends Migration
             $table->date('date')->nullable();
             $table->integer('invoice_id');
             $table->integer('product_id');
+            $table->integer('shop_id');
             $table->double('selling_qty');
             $table->double('unit_price');
             $table->double('selling_price');

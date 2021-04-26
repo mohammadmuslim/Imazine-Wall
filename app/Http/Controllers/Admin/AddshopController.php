@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\addshop;
+use App\Models\collection;
+use App\Models\invoice;
+use App\Models\invoicedetail;
 use Illuminate\Http\Request;
 
 class AddshopController extends Controller
@@ -34,7 +37,20 @@ class AddshopController extends Controller
     // Shop View
     public function shopview($id)
     {
-        $shop_single_view = addshop::findOrFail($id);
-        return view('Admin.addshop.shop_single_view', compact('shop_single_view'));
+        $shop_single_view  = addshop::findOrFail($id);
+        $invoice           = invoice::where('shop_id', $id)->where('status', 1)->latest()->paginate(20);
+        $collections       = collection::where('shop_id', $id)->latest()->paginate(20);
+        $total_amount      = invoicedetail::where('shop_id', $id)->where('status', 1)->sum('selling_price');
+        $total_coll_amount = collection::where('shop_id', $id)->sum('amount');
+        $rest_amount       = $total_amount - $total_coll_amount;
+
+        return view('Admin.addshop.shop_single_view', compact('shop_single_view', 'invoice', 'collections', 'total_amount', 'total_coll_amount', 'rest_amount'));
+    }
+
+    // Shop Lists
+    public function shopLists()
+    {
+        $shops = addshop::all();
+        return view('Admin.addshop.shoplists', compact('shops'));
     }
 }

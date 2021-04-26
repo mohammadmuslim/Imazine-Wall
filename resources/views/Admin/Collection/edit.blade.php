@@ -46,6 +46,11 @@
             </div>
 
             <div class="form-group">
+              <label class="form-control-label" for="amount">Discount</label>
+              <input type="number" class="form-control" id="discount" name="discount" value="{{ $collection_edit->discount }}">
+            </div>
+
+            <div class="form-group">
 
                 <input type="submit" class="btn btn-primary" value="যুক্ত করুন">
             </div>
