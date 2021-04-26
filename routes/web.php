@@ -38,7 +38,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
     // password change
     Route::get('/password/change', 'ProfileController@PasswordChange')->name('password.change');
     Route::post('/password/update', 'ProfileController@PasswordUpdate')->name('password.update');
-     
+
     // Site Info Setting
     Route::get('/setting', 'SettingController@settings')->name('settings');
     Route::put('/setting/update/{id}', 'SettingController@settingUpdate')->name('setting.update');
@@ -52,7 +52,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
 
     //today sell route
     Route::get('/todaysell','Todaysell@index')->name('todaysell.index');
-    
+
      //shop cost route
 
      Route::get('/sohpcost','ShopcostController@index')->name('shopcost.index');
@@ -76,7 +76,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
 
      // All Shop route
      Route::get('/shop/{id}','AddshopController@shopview')->name('shop.view');
-     
+
 
      //addshop route
      Route::get('/stock','stock@index')->name('stock.index');
@@ -104,8 +104,19 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
     Route::get('/bank_data','BankController@index')->name('bank.index');
     Route::post('/bank_data','BankController@addamount')->name('amount.add');
 
-    
-    
+    //bank drap
+    Route::get('/add-bank','AddBankController@index')->name('bank.add');
+    Route::post('/bank-store','AddBankController@store')->name('bank.added');
+    //withdraw
+    Route::get('/bank-withdraw','AddBankController@withdraw')->name('bank.withdraw');
+    Route::post('/withdraw','AddBankController@withdrawamount')->name('amount.withdraw');
+
+    //all bank route
+    Route::get('/bank/{id}','BankController@bankview')->name('bank.view');
+    //cash
+    Route::get('/cash','CashController@index')->name('shop.cash');
+
+
 });
- 
- 
+
+

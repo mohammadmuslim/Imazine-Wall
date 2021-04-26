@@ -1,5 +1,6 @@
 @php
     $allstoplist = App\Models\addshop::get();
+    $banklist = App\Models\AddBank::get();
 @endphp
 <nav class="sidenav navbar navbar-vertical fixed-left navbar-expand-xs navbar-light bg-white" id="sidenav-main">
     <div class="scrollbar-inner">
@@ -29,7 +30,7 @@
                         @if(Request::is('admin*'))
                         <a class="nav-link" href="{{ route('admin.dashboard') }}">
                             <i class="ni ni-shop text-primary"></i>
-                            <span class="nav-link-text">ওভারভিউ</span>
+                            <span class="nav-link-text">Overview</span>
                         </a>
                         @endif
                     </li>
@@ -57,7 +58,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#company_cost" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples1">
                             <i class="fas fa-industry text-primary"></i>
-                            <span class="nav-link-text">সব দোকানের তালিকা</span>
+                            <span class="nav-link-text">All Shop List</span>
                         </a>
                         <div class="collapse collapse-show" id="company_cost">
                             <ul class="nav nav-sm flex-column">
@@ -73,48 +74,85 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.todaysell.index') }}">
                             <i class="fas fa-user text-primary"></i>
-                            <span class="nav-link-text">আজকের বিক্রয় হিসাব</span>
+                            <span class="nav-link-text">Today Sell List</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.shopcost.index') }}">
                             <i class="fas fa-user text-primary"></i>
-                            <span class="nav-link-text">দোকানের খরচ</span>
+                            <span class="nav-link-text">Shop Cost</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.collection.index') }}">
                             <i class="fas fa-user text-primary"></i>
-                            <span class="nav-link-text">কালেকশন</span>
+                            <span class="nav-link-text">Collection</span>
                         </a>
-                    </li> 
-                    
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.addshop.index') }}">
                             <i class="fas fa-user text-primary"></i>
-                            <span class="nav-link-text">দোকান এড করুন</span>
+                            <span class="nav-link-text">Add Shop</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.stock.index') }}">
                             <i class="fas fa-user text-primary"></i>
-                            <span class="nav-link-text">স্টক/Stock</span>
+                            <span class="nav-link-text">Stock</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('admin.product.index') }}">
                             <i class="fas fa-user text-primary"></i>
-                            <span class="nav-link-text">অ্যাড প্রোডাক্ট</span>
+                            <span class="nav-link-text">Add Product</span>
                         </a>
+                    </li>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#bank" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples1">
+                            <i class="fas fa-industry text-primary"></i>
+                            <span class="nav-link-text">Bank</span>
+                        </a>
+                        <div class="collapse collapse-show" id="bank">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.bank.index') }}" class="nav-link">Drap to Bnak</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.bank.withdraw') }}" class="nav-link">Withdraw to Bank</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.bank.add') }}" class="nav-link">Add Bank</a>
+                                </li>
+                            <li class="nav-item">
+                                    <a class="nav-link" href="#Bank_list" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples1">
+                                        <i class="fas fa-industry text-primary"></i>
+                                        <span class="nav-link-text">All Bank List</span>
+                                    </a>
+                                    <div class="collapse collapse-show" id="Bank_list">
+                                        <ul class="nav nav-sm flex-column">
+                                            @foreach($banklist as $key => $row)
+                                            <li class="nav-item">
+                                                <a href="{{ route('admin.bank.view', $row->id) }}" class="nav-link">{{ $key+1 }}. {{ $row->bank_name }}</a>
+                                            </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('admin.bank.index') }}">
+                        <a class="nav-link" href="{{ route('admin.shop.cash') }}">
                             <i class="fas fa-user text-primary"></i>
-                            <span class="nav-link-text">ব্যাংকিং</span>
+                            <span class="nav-link-text">Cash</span>
                         </a>
                     </li>
+
 
                 </ul>
         </div>

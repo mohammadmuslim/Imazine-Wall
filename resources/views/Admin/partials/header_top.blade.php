@@ -1,4 +1,4 @@
-<nav class="navbar navbar-top navbar-expand navbar-dark bg-primary border-bottom">
+<nav class="navbar navbar-top navbar-expand navbar-dark  border-bottom" style="    background-color: black;">
       <div class="container-fluid">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <!-- Navbar links -->
@@ -44,7 +44,7 @@
                   <span>Change Password</span>
                 </a>
                 <div class="dropdown-divider"></div>
-                @if(Request::is('admin*')) 
+                @if(Request::is('admin*'))
                 <a href="{{ route('admin.logout') }}" class="dropdown-item">
                   <i class="ni ni-user-run"></i>
                    <span>Logout</span>
