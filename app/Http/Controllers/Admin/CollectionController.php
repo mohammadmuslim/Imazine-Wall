@@ -39,7 +39,7 @@ class CollectionController extends Controller
         $collection_store->amount        = $request->amount;
         $collection_store->discount      = $request->discount;
         $collection_store->save();
-
+        
         // Notification
         $notification = array(
             'message'    => 'টাকা সংরক্ষণ সফল হয়েছে',
@@ -92,5 +92,43 @@ class CollectionController extends Controller
         );
         return redirect()->route('admin.collection.index')->with($notification);
 
+    }
+
+    // Return
+    public function returnProduct()
+    {
+        $data['shop_data']       = addshop::select('id', 'shop_name')->get();
+
+        $invoice_no = collection::orderBy('id', 'desc')->first();
+
+        if ($invoice_no == null) {
+            $firstInvoice          = '0';
+            $data['collection_no'] = $firstInvoice + 1;
+        } else {
+            $invoiceCheck          = collection::orderBy('id', 'desc')->first()->collection_id;
+            $data['collection_no'] = $invoiceCheck + 1;
+        }
+
+        return view('Admin.collection.return', $data);
+    }
+
+    // return store
+    public function returnStore(Request $request)
+    {
+        $collection_return                = new collection();
+        $collection_return->collection_id = $request->collection_no;
+        $collection_return->user_name     = Auth::user()->name;
+        $collection_return->shop_id       = $request->shop_id;
+        $collection_return->date          = $request->date;
+        $collection_return->amount        = $request->amount;
+        $collection_return->discount      = 'Returned';
+        $collection_return->save();
+        
+        // Notification
+        $notification = array(
+            'message'    => 'Returned Added Successfully',
+            'alert-type' => 'success',
+        );
+        return redirect()->back()->with($notification);
     }
 }

@@ -52,6 +52,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
     Route::get('/sell/approve/lists', 'SellController@approvedList')->name('invoice.approve.list');
     Route::get('/sell/approve/view/{id}', 'SellController@approvedView')->name('invoice.approved.view');
     Route::delete('/sell/delete/{id}', 'SellController@sellDelete')->name('invoice.sell.delete');
+    Route::get('/sell/prient/{id}', 'SellController@sellPrient')->name('invoice.sell.prient');
 
     //all store route
     Route::get('/allstore','Allstore@index')->name('allstore.index');
@@ -74,6 +75,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
      Route::get('/collection/edit/{id}','CollectionController@edit')->name('collection.edit');
      Route::put('/collection/update/{id}','CollectionController@update')->name('collection.update');
      Route::delete('/collection/delete/{id}','CollectionController@delete')->name('collection.delete');
+
+     // return route
+     Route::get('/return','CollectionController@returnProduct')->name('return.index');
+     Route::post('/return/store','CollectionController@returnStore')->name('return.store');
 
      //addshop route
      Route::get('/shop-list','AddshopController@shopLists')->name('shop.lists');

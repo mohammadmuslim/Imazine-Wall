@@ -5,6 +5,8 @@
     <!-- Card header -->
     <div class="card-header">
       <h3 class="mb-0">ডিলার যুক্ত করুন এখান থেকে</h3>
+      <br>
+      <a class="btn btn-primary" href="{{ route('admin.return.index') }}">Return Amount</a>
     </div>
     <!-- Card body -->
     <div class="card-body">

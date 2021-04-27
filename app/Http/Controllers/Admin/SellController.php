@@ -10,6 +10,7 @@ use App\Models\product;
 use App\Models\stock;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PDF;
 
 class SellController extends Controller
 {
@@ -142,6 +143,15 @@ class SellController extends Controller
       );
       return redirect()->back()->with($notification); 
 
+    }
+
+    // Sell Prient
+    public function sellPrient($id)
+    {
+        $data['invoice'] = invoice::with('invoicedetails')->findOrFail($id);
+        $pdf = PDF::loadView('Admin.pdf.invoice_prient', $data);
+        $pdf->SetProtection(['copy', 'print'], '', 'pass');
+        return $pdf->stream('document.pdf');
     }
 }
  
