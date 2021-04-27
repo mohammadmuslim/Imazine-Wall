@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\bank;
 use App\Models\collection;
+use App\Models\invoice;
+use App\Models\invoicedetail;
 use App\Models\Withdraw;
 use App\Models\shopcost;
 use App\Models\stock;
@@ -33,12 +35,21 @@ class DashboardController extends Controller
     public function index()
     {
         // Report =============
+        //today sell
+        $date = date('Y-m-d');
+        $today_sell = invoicedetail::where('date', $date)->where('status', 1)->sum('selling_price');
         //bank
-        $total_bank_amount = bank::sum('bank_amount');
-        $total_withdraw_amount = Withdraw::sum('amount');
-        $total_balance = $total_bank_amount-$total_withdraw_amount;
+        $Mercantile_amount = bank::where('bank_name','Mercantile Bank Limited')->sum('bank_amount');
+        $Mercantile_withdraw = Withdraw::where('bank_name','Mercantile Bank Limited')->sum('amount');
+        $Mercantile_total = $Mercantile_amount-$Mercantile_withdraw;
+
+        $NRB_amount = bank::where('bank_name','NRB Bank Ltd')->sum('bank_amount');
+        $NRB_withdraw = Withdraw::where('bank_name','NRB Bank Ltd')->sum('amount');
+        $NRB_total = $NRB_amount-$NRB_withdraw;
         //cash
-        $all_collect = collection::sum('amount');
+        $collect = Collection::sum('amount');
+        $discount = Collection::sum('discount');
+        $all_collect = $collect - $discount;
         $all_cost = shopcost::sum('cost_amount');
         $total_cash = $all_collect - $all_cost;
         //product unit
@@ -47,11 +58,14 @@ class DashboardController extends Controller
         //today collection
 
         $date = date('Y-m-d');
-        $today_collection = collection::where('date', $date)->sum('amount');
+        $today_amount = collection::where('date', $date)->sum('amount');
+        $today_discount = collection::where('date', $date)->sum('discount');
+        $today_collection = $today_amount-$today_discount;
         //today shop cost
         $today_shopcost =shopcost::where('date', $date)->sum('cost_amount');
 
-        return view('Admin.dashboard',compact('total_balance','total_cash','stock','today_collection','today_shopcost'));
+        return view('Admin.dashboard',compact('total_cash','stock','today_collection','today_shopcost',
+        'today_sell','Mercantile_total','NRB_total'));
     }
     // Admin Logout
     public function logout()

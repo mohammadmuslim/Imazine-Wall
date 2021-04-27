@@ -3,7 +3,7 @@
 @section('content_head')
 <div class="card">
     <div class="card-header">
-        ব্যাংক হিসাব
+        Bank
     </div>
     <div class="card-body">
         <form action="{{ route('admin.amount.add') }}" method="POST">

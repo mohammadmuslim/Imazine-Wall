@@ -5,24 +5,25 @@
 
 <div class="card">
     <div class="card-header">
-        দোকানের খরচ
+        Shop Cost
+        <button><a href="{{ route('admin.shopcost.bank') }}">Drap to Bank</a></button>
     </div>
     <div class="card-body">
         <form action="{{ route('admin.shopcost.added') }}" method="POST">
             @csrf
 
             <div class="form-group">
-                <label class="form-control-label" for="date">তারিখ</label>
+                <label class="form-control-label" for="date">Date</label>
                 <input type="date" class="form-control" id="date" name="date" required>
             </div>
 
             <div class="form-group">
-                <label class="form-control-label" for="cost_details">খরচের বিবরণ</label>
+                <label class="form-control-label" for="cost_details">Description</label>
                 <input type="text" class="form-control" id="cost_details" name="cost_details" required>
             </div>
 
             <div class="form-group">
-                <label class="form-control-label" for="cost_amount">টাকার পরিমান</label>
+                <label class="form-control-label" for="cost_amount">Amount</label>
                 <input type="text" class="form-control" id="cost_amount" name="cost_amount" required>
             </div>
 
@@ -57,7 +58,7 @@
               </tr>
             </thead>
             <tbody>
-               
+
                 @foreach($shopcost_data as $row)
                 <tr>
                     <td>{{ $row->user_name }}</td>
@@ -68,15 +69,15 @@
                         <a title="Edit" class="btn btn-success btn-sm" href="{{ route('admin.shopcost.edit',$row->id) }}">
                             <i class="fa fa-edit"></i>
                         </a>
-                         
+
                     </td>
                 </tr>
                 @endforeach
-               
+
             </tbody>
           </table>
           {{ $shopcost_data->links() }}
-        
+
       </div>
     </div>
   </div>

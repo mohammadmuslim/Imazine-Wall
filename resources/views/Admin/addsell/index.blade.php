@@ -8,34 +8,34 @@
             @csrf
             <input type="hidden" name="invoice_id" value="{{ $invoiceData }}">
             <div class="form-group">
-               <label class="form-control-label" for="date">তারিখ</label>
+               <label class="form-control-label" for="date">Date</label>
                <input type="date" class="form-control" id="date" name="date" required>
             </div>
-   
+
            <div class="form-group">
-             <label class="form-control-label" for="customer_id">ডিলার এর নাম সিলেক্ট করুন</label>
+             <label class="form-control-label" for="customer_id">Shop Select</label>
              <select required data-toggle="select" class="form-control"  id="customer_id" name="shop_id" required>
                <option></option>
-               
+
                @foreach($shop_data as $row)
                <option value="{{ $row->id }}">{{ $row->shop_name }}</option>
                @endforeach
              </select>
            </div>
-   
+
             <div class="table-responsive">
                <table class="table table-bordered" id="dynamic_field">
                   <tr>
                      <td>
-                        <input  required type="number" name="product_id[]" placeholder="প্রোডাক্ট আইডি" class="form-control product_id" />
+                        <input  required type="number" name="product_id[]" placeholder="Product Id" class="form-control product_id" />
                      </td>
                      <td>
                         <input required type="number" name="quantity[]
-                        " placeholder="প্রোডাক্ট সংখ্যা" class="form-control product_quantity" />
+                        " placeholder="Product Quantity" class="form-control product_quantity" />
                      </td>
                      <td>
                         <input required type="number" name="price[]
-                        " placeholder="প্রোডাক্ট দাম" class="form-control product_price" />
+                        " placeholder="Price" class="form-control product_price" />
                      </td>
                      <td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
                   </tr>

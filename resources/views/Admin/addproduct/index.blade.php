@@ -5,7 +5,7 @@
 
 <div class="card">
     <div class="card-header">
-        add product
+        ADD PRODUCT
     </div>
     <div class="card-body">
         <form action="{{ route('admin.product.add') }}" method="POST">
@@ -21,7 +21,7 @@
                 <input type="text" class="form-control" id="product_name" name="product_name" required>
             </div>
 
-            
+
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="যুক্ত করুন">
             </div>
@@ -36,7 +36,7 @@
       <div class="card">
         <!-- Card header -->
         <div class="card-header">
-          <h2 class="mb-0">তালিকা</h2>
+          <h2 class="mb-0">LIST</h2>
         </div>
         <div class="table-responsive py-4 ">
           <table class="table table-flush">
@@ -44,7 +44,7 @@
               <tr>
                 <th>Page_No</th>
                 <th>Product Code</th>
-               
+
               </tr>
             </thead>
             <tbody>
@@ -52,15 +52,15 @@
                 <tr>
                     <td>{{ $row->id }}</td>
                     <td>{{ $row->product_name }}</td>
-                    
-                   
+
+
                 </tr>
                 @endforeach
-               
+
             </tbody>
           </table>
 
-         
+
       </div>
     </div>
   </div>

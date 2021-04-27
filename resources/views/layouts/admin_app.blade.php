@@ -29,6 +29,9 @@
     <link href="{{ asset('public/Backend/assets/vendor/sweetalert2/dist/sweetalert2.min.css') }}" rel="stylesheet">
     <!-- Argon CSS -->
     <link rel="stylesheet" href="{{ asset('public/Backend/assets/css/argon.css?v=1.1.0') }}" type="text/css">
+    <!-- style CSS -->
+    <link rel="stylesheet" href="{{ asset('public/Backend/assets/css/style.css') }}" type="text/css">
+
   @stack('css')
 </head>
 

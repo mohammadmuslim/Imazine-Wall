@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-
+use App\Models\AddBank;
+use App\Models\bank;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\shopcost;
@@ -57,5 +58,37 @@ class ShopcostController extends Controller
         );
         return redirect()->route('admin.shopcost.index')->with($notification);
     }
+
+    //
+    public function bank(){
+        $bank_list       = AddBank::all();
+        return view('Admin.shopcost.bank',compact('bank_list'));
+    }
+
+    //bank amount add
+    public function costbankamount(Request $request){
+        $add_amount = new bank();
+        $add_amount->user_name = Auth::user()->name;
+        $add_amount->bank_name = $request->bank_name;
+        $add_amount->bank_amount = $request->cost_amount;
+        $add_amount->date = $request->date;
+        $add_amount->save();
+
+        $add_amount = new shopcost();
+        $add_amount->user_name = Auth::user()->name;
+        $add_amount->cost_details = $request->bank_name;
+        $add_amount->cost_amount = $request->cost_amount;
+        $add_amount->date = $request->date;
+        $add_amount->save();
+
+        $notification = array(
+            'message'    => 'টাকা সংরক্ষণ সফল হয়েছে',
+            'alert-type' => 'success',
+        );
+        return redirect()->back()->with($notification);
+    }
+
+
+
 
 }
