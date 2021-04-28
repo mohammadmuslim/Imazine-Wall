@@ -4,7 +4,7 @@
 
 <div class="card">
     <div class="card-header">
-        <h2>Invoice Approved Lists</h2>
+        <h2>Invoice Approved List</h2>
     </div>
 <!-- Table -->
 <div class="row">

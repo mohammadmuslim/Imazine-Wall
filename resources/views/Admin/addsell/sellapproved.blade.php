@@ -13,7 +13,7 @@
       <div class="card">
         <!-- Card header -->
         <div class="card-header">
-          <h2 class="mb-0">তালিকা</h2>
+          <h2 class="mb-0">LIST</h2>
         </div>
         <div class="card shadow mb-4">
             <div class="card-header py-3">

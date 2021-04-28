@@ -55,6 +55,9 @@ class DashboardController extends Controller
         //product unit
         $stock = stock::sum('quantity');
 
+         //today sell unit
+         $today_sell_unit = invoicedetail::where('date', $date)->sum('selling_qty');
+
         //today collection
 
         $date = date('Y-m-d');
@@ -65,7 +68,7 @@ class DashboardController extends Controller
         $today_shopcost =shopcost::where('date', $date)->sum('cost_amount');
 
         return view('Admin.dashboard',compact('total_cash','stock','today_collection','today_shopcost',
-        'today_sell','Mercantile_total','NRB_total'));
+        'today_sell','Mercantile_total','NRB_total','today_sell_unit'));
     }
     // Admin Logout
     public function logout()
