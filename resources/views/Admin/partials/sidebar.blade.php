@@ -115,9 +115,6 @@
                         <div class="collapse collapse-show" id="bank">
                             <ul class="nav nav-sm flex-column">
                                 <li class="nav-item menuhover">
-                                    <a href="{{ route('admin.bank.index') }}" class="nav-link">Drap to Bnak</a>
-                                </li>
-                                <li class="nav-item menuhover">
                                     <a href="{{ route('admin.bank.withdraw') }}" class="nav-link">Withdraw to Bank</a>
                                 </li>
                                 <li class="nav-item menuhover">

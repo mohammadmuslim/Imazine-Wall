@@ -26,7 +26,6 @@
    <!-- Shop Invoice -->
    <div class="row text-center">
       <div class="col-md-6">
-         <h4>This Shop Total Cost <span class="text-primary">{{ $total_amount }} TK.</span> </h4>
          <div class="table-responsive py-4 ">
             <table class="table table-flush">
                <thead class="thead-light">
@@ -56,7 +55,6 @@
          </div>
       </div>
       <div class="col-md-6">
-         <h4>Total Collection Amount:- <span class="text-primary">{{ $total_coll_amount }} TK.</span></h4>
          <!-- Table -->
          <div class="row">
             <div class="col">
