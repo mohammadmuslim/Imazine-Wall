@@ -4,7 +4,8 @@
 <div class="card mb-4">
     <!-- Card header -->
     <div class="card-header">
-      <h3 class="mb-0">COLLECTION PAGE</h3>
+
+      <h3 class="mb-0">Collection Lists</h3>
     </div>
     <!-- Card body -->
     <div class="card-body">

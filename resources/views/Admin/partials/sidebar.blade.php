@@ -66,11 +66,22 @@
                             <span class="nav-link-text">Shop Cost</span>
                         </a>
                     </li>
-                    <li class="nav-item menuhover">
-                        <a class="nav-link" href="{{ route('admin.collection.index') }}">
-                            <i class="fas fa-ethernet text-primary"></i>
-                            <span class="nav-link-text">Collection</span>
+
+                    <li class="nav-item">
+                        <a class="nav-link menuhover" href="#collection" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples1">
+                            <i class="fab fa-sellcast text-primary"></i>
+                            <span class="nav-link-text">Collection/Return</span>
                         </a>
+                        <div class="collapse collapse-show" id="collection">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item menuhover">
+                                    <a href="{{ route('admin.collection.index') }}" class="nav-link">collection</a>
+                                </li>
+                                <li class="nav-item menuhover">
+                                    <a href="{{ route('admin.return.index') }}" class="nav-link">Return</a>
+                                </li>
+                            </ul>
+                        </div>
                     </li>
 
                     <li class="nav-item menuhover">

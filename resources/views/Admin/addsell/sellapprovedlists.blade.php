@@ -34,7 +34,7 @@
                     <a  title="Approved" href="{{ route('admin.invoice.approved.view', $row->id) }}" class="btn btn-primary btn-sm">
                         <i class="fas fa-eye"></i>
                     </a>
-                    <a  title="Approved" href="{{ route('admin.sell.approved', $row->id) }}" class="btn btn-success btn-sm">
+                    <a  title="Approved" target="__blank" href="{{ route('admin.invoice.sell.prient', $row->id) }}" class="btn btn-success btn-sm">
                         <i class="fas fa-print"></i>
                     </a>
                   <button title="Delete" type="button" class="btn btn-danger btn-sm" onclick="itemdelete({{ $row->id }})">

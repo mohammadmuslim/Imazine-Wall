@@ -20,7 +20,7 @@ class CreateCollectionsTable extends Migration
             $table->string('shop_id');
             $table->date('date');
             $table->integer('amount');
-            $table->integer('discount')->nullable();
+            $table->string('discount')->nullable();
             $table->timestamps();
         });
     }
