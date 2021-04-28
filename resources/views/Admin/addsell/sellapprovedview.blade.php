@@ -23,12 +23,12 @@
               <!--- Customer Info start ---->
               <table class="table" style="color: black;">
                 <tbody>
-                  <tr> 
+                  <tr>
                     <td><strong>Invoice No: </strong>
                       {{ $invoice->invoice_no }}
                     </td>
                     <td><strong>Shop Name: </strong>
-                      {{ $invoice->shop->shop_name }} 
+                      {{ $invoice->shop->shop_name }}
                     </td>
                     <td><strong>Shop Owner Number: </strong>
                         {{ $invoice->shop->mobile_number }}
@@ -49,10 +49,10 @@
                  </tr>
                 </thead>
                 <tbody>
-                  @php 
+                  @php
                   $subTotal = '0';
                   @endphp
-                  @foreach($invoice['invoicedetails'] as $key => $invoices) 
+                  @foreach($invoice['invoicedetails'] as $key => $invoices)
 
                   <input type="hidden" name="product_id[]" value="invoices->product_id">
 

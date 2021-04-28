@@ -13,7 +13,7 @@
       <div class="card">
         <!-- Card header -->
         <div class="card-header">
-          <h2 class="mb-0">তালিকা</h2>
+          <h2 class="mb-0">List</h2>
         </div>
         <div class="table-responsive py-4 ">
           <table class="table table-flush">
@@ -40,14 +40,14 @@
                       </button>
                       <form id="delete_form_{{ $row->id }}" method="POST" style="display: none" action="{{ route('admin.invoice.sell.delete', $row->id) }}">
                         @csrf
-                        @method('DELETE') 
+                        @method('DELETE')
                       </form>
                     </td>
                 </tr>
                 @endforeach
             </tbody>
-          </table> 
-          {{ $invoices->links()}}   
+          </table>
+          {{ $invoices->links()}}
         </div>
     </div>
   </div>

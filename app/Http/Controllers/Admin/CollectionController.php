@@ -39,7 +39,7 @@ class CollectionController extends Controller
         $collection_store->amount        = $request->amount;
         $collection_store->discount      = $request->discount;
         $collection_store->save();
-        
+
         // Notification
         $notification = array(
             'message'    => 'টাকা সংরক্ষণ সফল হয়েছে',
@@ -62,12 +62,12 @@ class CollectionController extends Controller
 
     public function update(Request $request, $id)
     {
-        $collection_update               = collection::find($id);
-        $collection_update->user_name    = Auth::user()->name;
-        $collection_update->shop_id      = $request->shop_id;
-        $collection_update->date         = $request->date;
-        $collection_update->amount       = $request->amount;
-        $collection_update->discount     = $request->discount;
+        $collection_update            = collection::find($id);
+        $collection_update->user_name = Auth::user()->name;
+        $collection_update->shop_id   = $request->shop_id;
+        $collection_update->date      = $request->date;
+        $collection_update->amount    = $request->amount;
+        $collection_update->discount  = $request->discount;
         $collection_update->save();
 
         // Notification
@@ -97,7 +97,9 @@ class CollectionController extends Controller
     // Return
     public function returnProduct()
     {
-        $data['shop_data']       = addshop::select('id', 'shop_name')->get();
+        $data['shop_data'] = addshop::select('id', 'shop_name')->get();
+
+        $data['return_amount'] = collection::where('discount', 'Returned')->orderBy('id', 'desc')->get();
 
         $invoice_no = collection::orderBy('id', 'desc')->first();
 
@@ -123,7 +125,7 @@ class CollectionController extends Controller
         $collection_return->amount        = $request->amount;
         $collection_return->discount      = 'Returned';
         $collection_return->save();
-        
+
         // Notification
         $notification = array(
             'message'    => 'Returned Added Successfully',

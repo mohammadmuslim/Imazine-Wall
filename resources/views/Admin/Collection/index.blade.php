@@ -4,9 +4,8 @@
 <div class="card mb-4">
     <!-- Card header -->
     <div class="card-header">
-      <h3 class="mb-0">ডিলার যুক্ত করুন এখান থেকে</h3>
-      <br>
-      <a class="btn btn-primary" href="{{ route('admin.return.index') }}">Return Amount</a>
+
+      <h3 class="mb-0">Collection Lists</h3>
     </div>
     <!-- Card body -->
     <div class="card-body">
@@ -14,17 +13,17 @@
             @csrf
 
             <div class="form-group">
-                <label class="form-control-label" for="date">তারিখ</label>
+                <label class="form-control-label" for="date">Date</label>
                 <input type="date" class="form-control" id="date" name="date" required>
             </div>
 
             <input type="hidden" name="collection_no" value="{{ $collection_no }}">
 
             <div class="form-group">
-              <label class="form-control-label" for="customer_id">ডিলার এর নাম সিলেক্ট করুন</label>
+              <label class="form-control-label" for="customer_id">Shop Name</label>
               <select required data-toggle="select" class="form-control"  id="customer_id" name="shop_id" required>
                 <option></option>
-                
+
                 @foreach($shop_data as $row)
                 <option value="{{ $row->id }}">{{ $row->shop_name }}</option>
                 @endforeach
@@ -32,7 +31,7 @@
             </div>
 
             <div class="form-group">
-                <label class="form-control-label" for="amount">টাকা</label>
+                <label class="form-control-label" for="amount">Amount</label>
                 <input type="number" class="form-control" id="amount" name="amount" required>
             </div>
 
@@ -62,12 +61,12 @@
           <thead class="thead-light">
             <tr>
               <th>Collection Id</th>
-              <th>টাকা গ্রহীতার নাম</th>
-              <th>তারিখ</th>
-              <th>দোকানের নাম</th>
-              <th>টাকা</th>
+              <th>Author Name</th>
+              <th>Date</th>
+              <th>Shop Name</th>
+              <th>Amount</th>
               <th>Discount</th>
-              <th>পরিবর্তন করুন</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>

@@ -8,7 +8,5 @@ class Cash extends Model
 {
     //
 
-    // public function collectionData(){
-    //     return $this->belongsTo(collection::class,'shop_id','id');
-    // }
+
 }

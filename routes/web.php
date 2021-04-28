@@ -66,8 +66,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'as' => 'admin.', 'mi
      Route::post('/sohpcost/added','ShopcostController@costadd')->name('shopcost.added');
      Route::get('/sohpcost/edit/{id}','ShopcostController@costedit')->name('shopcost.edit');
      Route::put('/sohpcost/update/{id}','ShopcostController@update')->name('shopcost.update');
+     Route::get('/sohpcost-bank','ShopcostController@bank')->name('shopcost.bank');
+     Route::post('/sohpcost-bank-add','ShopcostController@costbankamount')->name('shopcost.bank.add');
 
-  
+
      //collection route
 
      Route::get('/collection','CollectionController@index')->name('collection.index');
