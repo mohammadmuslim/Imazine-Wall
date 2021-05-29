@@ -123,6 +123,7 @@ class CollectionController extends Controller
         $collection_return->shop_id       = $request->shop_id;
         $collection_return->date          = $request->date;
         $collection_return->amount        = $request->amount;
+        $collection_return->r_amount      = $request->amount;
         $collection_return->discount      = 'Returned';
         $collection_return->save();
 

@@ -23,7 +23,7 @@
               <label class="form-control-label" for="customer_id">Shop Name</label>
               <select required data-toggle="select" class="form-control"  id="customer_id" name="shop_id" required>
                 <option></option>
-                
+
                 @foreach($shop_data as $row)
                 <option value="{{ $row->id }}">{{ $row->shop_name }}</option>
                 @endforeach

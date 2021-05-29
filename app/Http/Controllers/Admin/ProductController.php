@@ -12,6 +12,7 @@ class ProductController extends Controller
     public function index(){
         $product_list = product::all();
         return view('Admin.addproduct.index',compact('product_list'));
+
     }
     //add product
     public function addproduct(Request $request){

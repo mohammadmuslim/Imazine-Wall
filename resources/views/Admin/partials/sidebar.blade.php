@@ -13,7 +13,7 @@
             <div class="ml-auto">
                 <!-- Sidenav toggler -->
                 <div class="sidenav-toggler d-none d-xl-block" data-action="sidenav-unpin" data-target="#sidenav-main">
-                    <div class="sidenav-toggler-inner">
+                    <div class="sidenav-toggler-inner" style="width: 45px;height: 5px;">
                         <i class="sidenav-toggler-line"></i>
                         <i class="sidenav-toggler-line"></i>
                         <i class="sidenav-toggler-line"></i>

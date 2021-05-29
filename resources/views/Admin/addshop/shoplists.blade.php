@@ -22,15 +22,22 @@
                 <th>Shop No</th>
                 <th>Shop Name</th>
                 <th>Shop Number</th>
+                <th>Rest Amount</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
              @foreach($shops as $row)
+             @php
+                 $total_amount      = App\Models\invoicedetail::where('shop_id', $row->id)->where('status', 1)->sum('selling_price');
+                 $total_coll_amount = App\Models\collection::where('shop_id', $row->id)->sum('amount');
+                 $rest_amount       = $total_amount - $total_coll_amount;
+             @endphp
               <tr>
                 <td>{{ $row->id }}</td>
                 <td>{{ $row->shop_name }}</td>
                 <td>{{ $row->mobile_number }}</td>
+                <td>{{ $rest_amount }} TK.</td>
                 <td>
                     <a title="View" class="btn btn-primary btn-sm" href="{{ route('admin.shop.view', $row->id) }}">
                         <i class="fas fa-eye"></i>
@@ -40,7 +47,7 @@
                       </button>
                       <form id="delete_form_{{ $row->id }}" method="POST" style="display: none" action="{{ route('admin.collection.delete', $row->id) }}">
                         @csrf
-                        @method('DELETE') 
+                        @method('DELETE')
                      </form>
                 </td>
               </tr>

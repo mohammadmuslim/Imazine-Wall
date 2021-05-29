@@ -55,7 +55,7 @@ class SellController extends Controller
                 $invoice_details->save();
             }
         } else {
-            
+
         }
         // Notification
         $notification = array(
@@ -102,7 +102,7 @@ class SellController extends Controller
                $invoiceDetail->save();
                $stock = stock::where('product_id', $invoiceDetail->product_id)->first();
                $stock->quantity = ((float)$stock->quantity)-((float)$invoiceDetail->selling_qty);
-               $stock->save(); 
+               $stock->save();
             }
             $invoice->save();
          });
@@ -112,7 +112,7 @@ class SellController extends Controller
             'message'    => 'Products Approved Successfully',
             'alert-type' => 'success',
         );
-        return redirect()->route('admin.invoice.approve.list')->with($notification);        
+        return redirect()->route('admin.sell.pendinglist')->with($notification);
     }
 
     // Approved Lists
@@ -127,7 +127,7 @@ class SellController extends Controller
     {
         $invoice = invoice::with('invoicedetails')->find($id);
         return view('Admin.addsell.sellapprovedview', compact('invoice'));
-    } 
+    }
 
     // Sell Delete
     public function sellDelete($id)
@@ -141,7 +141,7 @@ class SellController extends Controller
         'message'    => 'Invoice Deleted Successfully',
         'alert-type' => 'success',
       );
-      return redirect()->back()->with($notification); 
+      return redirect()->back()->with($notification);
 
     }
 
@@ -154,4 +154,3 @@ class SellController extends Controller
         return $pdf->stream('document.pdf');
     }
 }
- 

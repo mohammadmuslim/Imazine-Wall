@@ -46,12 +46,15 @@ class DashboardController extends Controller
         $NRB_amount = bank::where('bank_name','NRB Bank Ltd')->sum('bank_amount');
         $NRB_withdraw = Withdraw::where('bank_name','NRB Bank Ltd')->sum('amount');
         $NRB_total = $NRB_amount-$NRB_withdraw;
+
+
         //cash
         $collect = Collection::sum('amount');
         $discount = Collection::sum('discount');
         $all_collect = $collect - $discount;
+        $total_return = collection::sum('r_amount');
         $all_cost = shopcost::sum('cost_amount');
-        $total_cash = $all_collect - $all_cost;
+        $total_cash = $all_collect - $all_cost- $total_return;
         //product unit
         $stock = stock::sum('quantity');
 
@@ -63,9 +66,11 @@ class DashboardController extends Controller
         $date = date('Y-m-d');
         $today_amount = collection::where('date', $date)->sum('amount');
         $today_discount = collection::where('date', $date)->sum('discount');
-        $today_collection = $today_amount-$today_discount;
+        $today_return = collection::where('date', $date)->sum('r_amount');
+        $today_collection = $today_amount-$today_discount-$today_return;
         //today shop cost
         $today_shopcost =shopcost::where('date', $date)->sum('cost_amount');
+
 
         return view('Admin.dashboard',compact('total_cash','stock','today_collection','today_shopcost',
         'today_sell','Mercantile_total','NRB_total','today_sell_unit'));
