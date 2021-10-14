@@ -37,7 +37,6 @@ class StockController extends Controller
             }
         } else {
             $stock_store             = new stock();
-            $stock_store->date       = $request->date;
             $stock_store->product_id = $product_id;
             $stock_store->quantity   = $request->product_quantity;
             $stock_store->save();
